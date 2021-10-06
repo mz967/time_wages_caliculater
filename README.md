@@ -23,3 +23,6 @@
 
 ## マーケット
 時給換算の便益を理解している人
+
+## 画面遷移図
+https://www.figma.com/file/ZUhCm0PeFgi2zoVXsgVxTf/Time_Wages_Caliculater?node-id=0%3A1

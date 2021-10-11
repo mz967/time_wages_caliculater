@@ -26,3 +26,6 @@
 
 ## 画面遷移図
 https://www.figma.com/file/ZUhCm0PeFgi2zoVXsgVxTf/Time_Wages_Caliculater?node-id=0%3A1
+
+## ER図
+https://drive.google.com/file/d/1f01neLmk9S9fVBdab893zqVktVnnkp23/view?usp=sharing

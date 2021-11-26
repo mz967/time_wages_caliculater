@@ -1,0 +1,26 @@
+<template>
+  <header class="text-white body-font bg-blue-500">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <span class="ml-3 text-xl">Time Wages Calculator</span>
+      </a>
+      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-gray-900">ログイン</a>
+        <a class="mr-5 hover:text-gray-900">新規登録</a>
+      </nav>
+      <button class="inline-flex items-center bg-gray-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0">
+        ここにスライダー
+      </button>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'TheHeader',
+  data() {
+    return {
+    }
+  }
+}
+</script>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'homes#top'
-  get 'homes/introduction'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'home#top'
+  get 'home/introduction'
+  get '*path', to: 'home#top'
 end

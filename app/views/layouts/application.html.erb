@@ -5,16 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <!-- <%= stylesheet_link_tag 'application', media: 'all' %> -->
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render 'shared/header' %>
-    <main class="container mx-auto mt-28 px-5 flex flex-col min-h-screen">
-      <%= yield %>
-    </main>
-    <%= render 'shared/footer' %>
+    <%= yield %>
   </body>
 </html>

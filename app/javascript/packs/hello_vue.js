@@ -8,7 +8,14 @@
 import Vue from 'vue'
 import App from '../app.vue'
 import router from '../router/router'
+import axios from '../plugins/axios'
+// import { LineAwesome } from 'line-awesome'
+import 'line-awesome/dist/line-awesome/css/line-awesome.min.css'
+
 // import '../css/tailwind.css' application.html.erbで読み込んでいるからここで読み込まなくてもいいっっぽい
+
+Vue.prototype.$axios = axios
+// Vue.component('line-awesome', LineAwesome)
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

@@ -31,7 +31,7 @@ gem 'dotenv-rails'
 # sorcery導入
 gem 'sorcery'
 # フォーム作成
-gem 'simple_form'
+# gem 'simple_form'
 
 group :development, :test do
   # BetterErrors
@@ -48,6 +48,10 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop-rspec'
+
+  # サンプルデータ関連
+  gem 'seed-fu', '~> 2.3'
+  gem 'faker'
 end
 
 

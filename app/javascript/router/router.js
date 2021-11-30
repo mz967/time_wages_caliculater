@@ -29,7 +29,6 @@ const router = new Router({
       path: "/task/:id",
       component: TaskDetail,
       name: "TaskDetail",
-      props: true
     },
   ]
 })

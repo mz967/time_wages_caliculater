@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :task do
-    title { "MyString" }
-    total_wage { 1 }
-    total_time { 1 }
-    user { nil }
+    sequence(:title) { |n| "title-#{n}" }
+    association :user
   end
 end

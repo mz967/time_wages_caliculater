@@ -116,18 +116,8 @@ export default {
       }
     }
   },
-  // data() {
-  //   return {
-  //     task: {
-  //       title: ''
-  //     }
-  //   }
-  // },
 
   methods: {
-    // handleCreateTask() {
-    //   this.$emit('create-task', this.task)
-    // },
     handleCloseModal() {
       this.$emit('close-task-edit-modal')
     },
@@ -139,7 +129,6 @@ export default {
       this.$set(this.task, 'total_wage', "0")
       this.$emit('reset-task', this.task)
     },
-
     handleDeleteTask() {
       this.$emit('delete-task', this.task)
     }

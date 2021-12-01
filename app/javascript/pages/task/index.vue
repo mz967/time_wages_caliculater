@@ -1,9 +1,5 @@
 <template>
   <div>
-    <h1 class="text-center text-lg">
-      タスク一覧
-    </h1>
-
     <div class="flex flex-wrap">
       <div
         v-for="task in tasks"

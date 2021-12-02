@@ -12,7 +12,8 @@ import axios from '../plugins/axios'
 // import { LineAwesome } from 'line-awesome'
 import 'line-awesome/dist/line-awesome/css/line-awesome.min.css'
 
-// import '../css/tailwind.css' application.html.erbで読み込んでいるからここで読み込まなくてもいいっっぽい
+import '../css/tailwind.css'
+//  application.html.erbで読み込んでいるからここで読み込まなくてもいいっっぽい
 
 Vue.prototype.$axios = axios
 // Vue.component('line-awesome', LineAwesome)

@@ -4,7 +4,7 @@
       <p class="text-sm  sm:ml-6 sm:mt-0 mt-4">
         © 2021 Time Wages Calculator —
         <a
-          href="https://twitter.com/knyttneve"
+          href=""
           rel="noopener noreferrer"
           class="ml-1"
           target="_blank"

@@ -4,8 +4,8 @@ class Api::V1::WorksController < ApplicationController
     @task = Task.find_by(task_params)
     @work.work_time = @work.end_at - @work.start_at
     @work.hourly_wage = 1000
-    # @work.hourly_wage = current_user.current_hourly_wage
-    # binding.pry
+    # @work.hourly_wage = current_user.current_hourly_wage 
+    # User機能実装したらこれを使用する。
     @task.total_time += @work.work_time
     @task.total_wage += (@work.hourly_wage * @work.work_time / 60 / 60).floor
     if @work.save && @task.save

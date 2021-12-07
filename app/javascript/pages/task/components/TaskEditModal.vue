@@ -122,12 +122,12 @@ export default {
       this.$emit('close-task-edit-modal')
     },
     handleUpdateTaskTitle() {
-      this.$emit('update-task-title', this.task)
+      this.$emit('update-task', this.task)
     },
     handleResetTask() {
       this.$set(this.task, 'total_time', "0")
       this.$set(this.task, 'total_wage', "0")
-      this.$emit('reset-task', this.task)
+      this.$emit('update-task', this.task)
     },
     handleDeleteTask() {
       this.$emit('delete-task', this.task)

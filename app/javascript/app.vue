@@ -11,12 +11,14 @@
 <script>
 import TheHeader from "components/TheHeader"
 import TheFooter from "components/TheFooter"
+// import Mixin from 'mixins/mixin.js'
 
 export default {
   components: {
     TheHeader,
     TheFooter
-  }
+  },
+  // mixins : [Mixin]
 }
 </script>
 

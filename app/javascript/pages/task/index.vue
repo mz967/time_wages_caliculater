@@ -59,6 +59,7 @@
 
 <script>
 import TaskCreateModal from "./components/TaskCreateModal"
+// import { mapGetters, mapActions } from "vuex"
 
 export default {
   name: "TaskIndex",
@@ -72,12 +73,20 @@ export default {
     }
   },
 
+  computed: {
+    // ...mapGetters("tasks", ["tasks"]),
+  },
+
   created() {
-    this.fetchtasks();
+    this.fetchTasks();
   },
 
   methods: {
-    fetchtasks() {
+    // ...mapActions("tasks", [
+    //   "fetchTasks",
+    //   "createTask",
+    // ]),
+    fetchTasks() {
       this.$axios.get("tasks")
         .then(res => this.tasks = res.data)
         .catch(err => console.log(err.status));
@@ -98,6 +107,17 @@ export default {
       // this.handlecloseTaskCreateModal();
       this.$router.go({path: this.$router.currentRoute.path, force: true})
     },
+
+    // async handleCreateTask(task) {
+    //   try {
+    //     await this.createTask(task);
+    //     this.handlecloseTaskCreateModal();
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
+      //  なぜかmodalがcloseしない
+
     // graphHeight(task) {
     //   Math.floor(task.total_wage / 500000 * 100)
     // }

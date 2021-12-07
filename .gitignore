@@ -39,3 +39,5 @@ yarn-debug.log*
 /.env
 
 /vendor/bundle
+
+.DS_Store

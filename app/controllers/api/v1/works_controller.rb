@@ -1,13 +1,17 @@
 class Api::V1::WorksController < ApplicationController
   def create
-    @work = Work.new(work_params)
-    @task = Task.find_by(task_params)
-    @work.work_time = @work.end_at - @work.start_at
-    @work.hourly_wage = 1000
-    # @work.hourly_wage = current_user.current_hourly_wage 
-    # User機能実装したらこれを使用する。
-    @task.total_time += @work.work_time
-    @task.total_wage += (@work.hourly_wage * @work.work_time / 60 / 60).floor
+    User.transaction do
+      @work = Work.new(work_params)
+      @work.time_caliculator
+      @work.hourly_wage = 1000
+      # @work.hourly_wage = current_user.current_hourly_wage
+      # User機能実装したらこれを使用する。
+    end
+    Task.transaction do
+      @task = Task.find_by(task_params)
+      @task.add_total_data(@work)
+    end
+    # rescue => e
     if @work.save && @task.save
       render json: { work: @work, task: @task }
     else
@@ -18,6 +22,7 @@ class Api::V1::WorksController < ApplicationController
   private
 
   def work_params
+    # binding.pry
     params.require(:work).permit(:start_at, :end_at, :task_id)
   end
 

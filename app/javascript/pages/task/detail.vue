@@ -5,7 +5,7 @@
     </h1>
     <StopWatchFunction
       :task="task"
-      @create-work="CreateWork"
+      @create-work="handleCreateWork"
     />
     <div class="relative shadow bg-gray-300 h-96 mt-10 pt-10 ">
       <div class="static h-2/3 w-5/6 bg-white mx-auto px-8 pt-16">
@@ -49,9 +49,8 @@
         v-if="isVisibleTaskEditModal"
         :task="taskEdit"
         @close-task-edit-modal="CloseTaskEditModal"
-        @update-task-title="ChangeTaskTitle"
-        @reset-task="ResetTask"
-        @delete-task="DeleteTask"
+        @update-task="handleUpdateTask"
+        @delete-task="handleDeleteTask"
       />
     </transition>
     <transition name="fade">
@@ -69,6 +68,7 @@
 import TaskEditModal from "./components/TaskEditModal"
 import StopWatchFunction from "./components/StopWatchFunction"
 import TaskFinishModal from "./components/TaskFinishModal"
+// import { mapGetters, mapActions, mapState } from "vuex"
 
 export default {
   name: "TaskDetail",
@@ -79,17 +79,25 @@ export default {
   },
   data() {
     return {
+      // ...mapState("tasks", [
+      // "task"
+      // ]),
       isVisibleTaskEditModal: false,
       taskEdit: {},
       task: {},
       work: {},
       isVisibleTaskFinishModal: false,
-      // workDetail: {},
-      // taskFinishDetail: {}
     }
   },
 
   computed: {
+    // ...mapGetters("tasks", [
+    //   "task",
+    //   "total_timeH",
+    //   "total_timeM",
+    //   "total_timeS",
+
+    // ]),
     total_timeH() {
       var total_timeH = Math.floor(this.task.total_time % (24 * 60 * 60) / (60 * 60));
       return total_timeH
@@ -110,12 +118,25 @@ export default {
   },
 
   created() {
-    this.getDetail();
+    this.fetchDetail();
   },
 
   methods: {
+    // ...mapActions(
+    //   "tasks", [
+    //   "fetchDetail",
+    //   "updateTask",
+    //   // "deleteTask",
+    //   "setTask",
+    //   ],
+    //   "works", [
+    //     "setWork",
+    //     // "createWork"
+    //   ]
+    // ),
+    
     // task取得
-    getDetail() {
+    fetchDetail() {
       this.$axios.get(`http://localhost:3000/api/v1/tasks/${this.$route.params.id}`)
         // ここはなぜかフルで書かないと機能しない後で調べる
         .then(res => this.task = res.data)
@@ -123,39 +144,87 @@ export default {
     },
 
     // タスク編集関連
+    // モーダル出現系
     handleShowTaskEditModal() {
       this.isVisibleTaskEditModal = true;
       this.taskEdit = this.task;
     },
-
     CloseTaskEditModal() {
       this.isVisibleTaskEditModal = false;
       this.taskEdit = {};
     },
-
-    ChangeTaskTitle(task) {
-      this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
+    // タイトル変更
+    async handleUpdateTask(task) {
+      try {
+        await this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
         .then(res => this.data = res.data)
-      this.CloseTaskEditModal();
+        this.CloseTaskEditModal();
+      } catch (error) {
+        console.log(error);
+      }
     },
 
-    ResetTask(task) {
-      this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
-        .then(res => this.data = res.data)
-      this.CloseTaskEditModal();
+    // ChangeTaskTitle(task) {
+    //   this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
+    //     .then(res => this.data = res.data)
+    //   this.CloseTaskEditModal();
+    // },
+
+    // ResetTask(task) {
+    //   this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
+    //     .then(res => this.data = res.data)
+    //   this.CloseTaskEditModal();
+    // },
+
+    // タスク削除
+    async handleDeleteTask(task) {
+      try {
+        // await this.deleteTask(task);
+        await this.$axios.delete(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
+        this.$router.push({ name: 'TaskIndex' })
+      } catch (error) {
+        console.log(error);
+      }
     },
 
-    DeleteTask(task) {
-      this.$axios.delete(`http://localhost:3000/api/v1/tasks/${task.id}`)
-        .then(res => this.$router.push({ name: 'TaskIndex' }))
-    },
+    // handleDeleteTask(task) {
+    //   this.$axios.delete(`http://localhost:3000/api/v1/tasks/${task.id}`)
+    //     .then(res => this.$router.push({ name: 'TaskIndex' }))
+    // },
 
     // タイマー関連
-    CreateWork(work, task) {
+    // handleCreateWork(work, task) {
+    //   this.$axios.post('http://localhost:3000/api/v1/works', {work, task})
+    //   .then(res => {
+    //     this.work = res.data.work, this.task = res.data.task})
+    //   // this.setTask (updateTask)
+    //   this.handleshowTaskFinishModal();
+    // },
+
+    handleCreateWork(work, task) {
       this.$axios.post('http://localhost:3000/api/v1/works', {work, task})
-      .then(res => {this.work = res.data.work, this.task = res.data.task})
+        .then(res => {this.work = res.data.work, this.task = res.data.task})
       this.handleshowTaskFinishModal();
     },
+
+    //  async handleCreateWork(work) {
+    //   try {
+    //     await this.createWork(work)
+    //     // $axios.post('http://localhost:3000/api/v1/works', {work, task})
+    //     //   .then(res => {('setWork', res.data.work), ('setTask',res.data.task)})
+    //     this.handleshowTaskFinishModal();
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
+
+    // ("setTask",res.data.task)
+
+    // CreateWork(work, task) {
+    //   this.$axios.post('http://localhost:3000/api/v1/works', {work, task})
+    //   .then(res => {commit('setWork', res.data.work) , commit('setTask',res.data.task) })
+    //   this.handleshowTaskFinishModal();
+    // },
 
     handleshowTaskFinishModal() {
       this.isVisibleTaskFinishModal = true;

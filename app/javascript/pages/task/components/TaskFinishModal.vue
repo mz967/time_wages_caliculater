@@ -31,7 +31,7 @@
                   <span>{{ work_timeM }}</span>分
                   <span>{{ work_timeS }}</span>秒で
                   <br>
-                  <span>{{ task_take_money }}</span>円分の働きとなりました！！
+                  <span>{{ this_task_wage }}</span>円分の働きとなりました！！
                 </p>
                 <br>
                 <p class="text-sm text-gray-800">
@@ -113,9 +113,10 @@ export default {
   },
 
   computed: {
-    task_take_money(){
-      var task_take_money = Math.floor(this.work.hourly_wage*this.work.work_time/60/60)
-      return task_take_money
+    // ...mapGetters("tasks", ["tasks"]),
+    this_task_wage(){
+      var this_task_wage = Math.floor(this.work.hourly_wage*this.work.work_time/60/60)
+      return this_task_wage
     },
 
     work_timeH() {

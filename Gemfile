@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'dotenv-rails'
 # sorcery導入
 gem 'sorcery'
+gem 'jwt'
 # フォーム作成
 # gem 'simple_form'
 

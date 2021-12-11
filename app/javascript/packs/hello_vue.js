@@ -9,7 +9,7 @@ import Vue from 'vue'
 import App from '../app.vue'
 import router from '../router/router'
 import axios from '../plugins/axios'
-// import store from '../store/store'
+import store from '../store/store'
 import 'line-awesome/dist/line-awesome/css/line-awesome.min.css'
 
 import '../css/tailwind.css'
@@ -20,7 +20,7 @@ Vue.prototype.$axios = axios
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     router,
-    // store,
+    store,
     render: h => h(App)
   }).$mount()
   document.body.appendChild(app.$el)

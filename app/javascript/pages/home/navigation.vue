@@ -10,20 +10,20 @@
         </div>
         <div class="flex-grow sm:text-center text-center mt-6 sm:mt-0">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-2">
-            1.累計金額を表示
+            仕事で使う
           </h2>
           <p class="leading-relaxed text-base">
-            長期間にわたるタスクにも対応
+            効率良い動き・無駄を無くす行動
           </p>
         </div>
       </div>
       <div class="flex items-center lg:w-3/5 mx-auto border-b pb-20 mb-40 border-blue-400  sm:flex-row flex-col">
         <div class="flex-grow sm:text-center text-center mt-6 sm:mt-0">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-2">
-            2.タスクごとに管理
+            余暇時間の無駄を無くす
           </h2>
           <p class="leading-relaxed text-base">
-            視覚的にわかりやすく表示
+            資格試験の勉強・趣味をする時間
           </p>
         </div>
         <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
@@ -35,17 +35,17 @@
       </div>
       <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col mb-40">
         <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
-          <img
+          <!-- <img
             src="../../images/LINE_example.PNG"
             alt=""
-          >
+          > -->
         </div>
         <div class="flex-grow sm:text-center text-center mt-6 sm:mt-0">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-2">
-            3.LINEとの連携
+            価値の比較をする
           </h2>
           <p class="leading-relaxed text-base">
-            WEBを開かなくても簡単計測
+            自分で家事をするか家事代行を使うか・資格試験の勉強の意味があるのか
           </p>
         </div>
       </div>
@@ -58,6 +58,6 @@
 
 <script>
 export default {
-  name: "HomeIntroduction"
+  name: "HomeNavigation"
 }
 </script>

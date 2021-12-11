@@ -3,6 +3,6 @@ User.create!(
   name: 'sample_user',
   email: 'sample@example.com',
   password: 'password',
-  # password_confirmation: 'password', なぜかこれを入れるとエラーになる
+  password_confirmation: 'password',
   current_hourly_wage: 1000
   )

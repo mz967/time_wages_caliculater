@@ -337,6 +337,7 @@ DEPENDENCIES
   faker
   foreman
   jbuilder (~> 2.7)
+  jwt
   listen (~> 3.2)
   mysql2 (>= 0.4.4)
   pry-byebug

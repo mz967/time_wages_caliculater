@@ -4,6 +4,6 @@ class Task < ApplicationRecord
   validates :title, presence: true
   def add_total_data(work)
     self.total_time += work.work_time
-    self.total_wage += work.wage_caliculotor
+    self.total_wage += work.wage_caliculator
   end
 end

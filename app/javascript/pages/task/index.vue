@@ -59,7 +59,7 @@
 
 <script>
 import TaskCreateModal from "./components/TaskCreateModal"
-// import { mapGetters, mapActions } from "vuex"
+import { mapGetters } from "vuex"
 
 export default {
   name: "TaskIndex",
@@ -75,6 +75,7 @@ export default {
 
   computed: {
     // ...mapGetters("tasks", ["tasks"]),
+    ...mapGetters("users", ["authUser"]),
   },
 
   created() {

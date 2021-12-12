@@ -2,7 +2,7 @@ class Api::V1::TasksController < ApplicationController
   before_action :set_task, only: %i[show update destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user_id: current_user.id)
     render json: @tasks
   end
 
@@ -11,8 +11,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.user_id = 1
+    @task = current_user.tasks.build(task_params)
 
     if @task.save
       render json: @task

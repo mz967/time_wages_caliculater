@@ -1,42 +1,43 @@
 <template>
   <div class="text-center">
-    <form class="bg-white rounded px-8 pt-6 pb-8 mb-4">
-      <h1 class="text-center font-bold">
-        現在の時給を教えてください!
-      </h1>
+    <ValidationObserver v-slot="{ handleSubmit }">
       <div class="mt-10 mb-4">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="current_hourly_wage"
+        <ValidationProvider
+          v-slot="{ errors }"
+          rules="required|numeric"
         >
-          時給
-        </label>
-        <input
-          id="name"
-          v-model="user.current_hourly_wage"
-          class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text"
-          inputmode="numeric"
-          placeholder=""
-        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="current_hourly_wage"
+          >
+            現在の時給をお教えください!
+          </label>
+          <input
+            id="current_hourly_wage"
+            v-model="user.current_hourly_wage"
+            class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            name="時給"
+          >
+          <br>
+          <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+        </ValidationProvider>
       </div>
       <h4
         class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mb-3"
-        href="#"
         @click="handleShowWageCaliculatorModal"
       >
-        現在の時給計算をする
+        現在の時給を計算する
       </h4>
       <br>
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="button"
-        @click="registerWage"
+        @click="handleSubmit(registerWage)"
       >
-        時給登録
+        時給変更
       </button>
-    </form>
-
+    </ValidationObserver>
     <transition name="fade">
       <WageCaliculatorModal
         v-if="isVisibleWageCaliculatorModal"
@@ -73,6 +74,10 @@ export default {
       this.$axios.patch(`users/${this.authUser.id}`, {user: this.user})
         .then(res => {
           this.$router.push({ name: 'TaskIndex' })
+          this.$store.commit(`message/setContent`,{
+            content: '時給を変更しました!',
+            timeout: 6000
+          })
         })
         .catch(err => {
           console.log(err)

@@ -106,7 +106,13 @@ export default {
         .then(res => this.tasks.push(task))
         .catch(err => console.log(err.status));
       // this.handlecloseTaskCreateModal();
-      this.$router.go({path: this.$router.currentRoute.path, force: true})
+      // this.$router.go({path: this.$router.currentRoute.path, force: true})
+      this.fetchTasks()
+      this.handlecloseTaskCreateModal()
+      this.$store.commit(`message/setContent`,{
+        content: 'タスクを作成しました!',
+        timeout: 6000
+      })
     },
 
     // async handleCreateTask(task) {

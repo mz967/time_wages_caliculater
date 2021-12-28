@@ -21,69 +21,117 @@
 
     <div v-else-if="style==='monthly_income'">
       <h3>月収より計算する</h3>
-      <form class="m-5">
-        <p>直近月の月収を入力してください</p>
+      <ValidationObserver v-slot="{ handleSubmit }">
         <div class="mb-4">
-          <input
-            id="monthly_income"
-            v-model="monthly_income"
-            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-            type="text"
-            placeholder="月収"
+          <ValidationProvider
+            v-slot="{ errors }"
+            rules="required|numeric"
           >
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="monthly_income"
+            >
+              直近月の月収を入力してください
+            </label>
+            <input
+              id="monthly_income"
+              v-model="monthly_income"
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+              type="text"
+              name="月収"
+            >
+            <br>
+            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+          </ValidationProvider>
         </div>
-        <p>労働時間を記入してください</p>
         <div class="mb-4">
-          <input
-            id="working_time"
-            v-model="working_time"
-            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-            type="text"
-            placeholder="労働時間"
+          <ValidationProvider
+            v-slot="{ errors }"
+            rules="required|numeric"
           >
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="working_time"
+            >
+              労働時間を記入してください。<br>
+              単位は時間です。分については四捨五入をして時間に変換してください。
+            </label>
+            <input
+              id="working_time"
+              v-model="working_time"
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+              type="text"
+              name="労働時間"
+            >
+            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+          </ValidationProvider>
         </div>
-      </form>
-      <button
-        type="button"
-        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+        <button
+          type="button"
+          class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
 
-        @click="handleCaliculateMontlyIncome"
-      >
-        計算
-      </button>
+          @click="handleSubmit(handleCaliculateMontlyIncome)"
+        >
+          計算
+        </button>
+      </ValidationObserver>
     </div>
 
     <div v-else-if="style==='annual_income'">
       <h3>年収より計算する</h3>
-      <form class="m-5">
-        <p>昨年の年収を入力してください</p>
+      <ValidationObserver v-slot="{ handleSubmit }">
         <div class="mb-4">
-          <input
-            id="annual_income"
-            v-model="annual_income"
-            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-            type="text"
-            placeholder="年収"
+          <ValidationProvider
+            v-slot="{ errors }"
+            rules="required|numeric"
           >
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="annual_income"
+            >
+              昨年の年収を入力してください
+            </label>
+            <input
+              id="annual_income"
+              v-model="annual_income"
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+              type="text"
+              name="年収"
+            >
+            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+          </ValidationProvider>
         </div>
-        <p>労働時間を記入してください</p>
+
         <div class="mb-4">
-          <input
-            id="working_time"
-            v-model="working_time"
-            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-            type="text"
-            placeholder="労働時間"
+          <ValidationProvider
+            v-slot="{ errors }"
+            rules="required|numeric"
           >
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="working_time"
+            >
+              労働時間を記入してください。<br>
+              単位は時間です。分については四捨五入をして時間に変換してください。
+            </label>
+            <input
+              id="working_time"
+              v-model="working_time"
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+              type="text"
+              name="労働時間"
+            >
+            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+          </ValidationProvider>
         </div>
-      </form>
-      <button
-        type="button"
-        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-        @click="handleCaliculateAnnualIncome"
-      >
-        計算
-      </button>
+        <button
+          type="button"
+          class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+          @click="handleSubmit(handleCaliculateAnnualIncome)"
+        >
+          計算
+        </button>
+      </ValidationObserver>
     </div>
   </div>
 </template>

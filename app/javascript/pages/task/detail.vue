@@ -159,22 +159,14 @@ export default {
         await this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
         .then(res => this.data = res.data)
         this.CloseTaskEditModal();
+        this.$store.commit(`message/setContent`,{
+          content: '処理を実行しました!',
+          timeout: 6000
+        })
       } catch (error) {
         console.log(error);
       }
     },
-
-    // ChangeTaskTitle(task) {
-    //   this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
-    //     .then(res => this.data = res.data)
-    //   this.CloseTaskEditModal();
-    // },
-
-    // ResetTask(task) {
-    //   this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
-    //     .then(res => this.data = res.data)
-    //   this.CloseTaskEditModal();
-    // },
 
     // タスク削除
     async handleDeleteTask(task) {
@@ -182,49 +174,20 @@ export default {
         // await this.deleteTask(task);
         await this.$axios.delete(`http://localhost:3000/api/v1/tasks/${task.id}`, task)
         this.$router.push({ name: 'TaskIndex' })
+        this.$store.commit(`message/setContent`,{
+          content: 'タスクを破棄しました!',
+          timeout: 6000
+        })
       } catch (error) {
         console.log(error);
       }
     },
-
-    // handleDeleteTask(task) {
-    //   this.$axios.delete(`http://localhost:3000/api/v1/tasks/${task.id}`)
-    //     .then(res => this.$router.push({ name: 'TaskIndex' }))
-    // },
-
-    // タイマー関連
-    // handleCreateWork(work, task) {
-    //   this.$axios.post('http://localhost:3000/api/v1/works', {work, task})
-    //   .then(res => {
-    //     this.work = res.data.work, this.task = res.data.task})
-    //   // this.setTask (updateTask)
-    //   this.handleshowTaskFinishModal();
-    // },
 
     handleCreateWork(work, task) {
       this.$axios.post('http://localhost:3000/api/v1/works', {work, task})
         .then(res => {this.work = res.data.work, this.task = res.data.task})
       this.handleshowTaskFinishModal();
     },
-
-    //  async handleCreateWork(work) {
-    //   try {
-    //     await this.createWork(work)
-    //     // $axios.post('http://localhost:3000/api/v1/works', {work, task})
-    //     //   .then(res => {('setWork', res.data.work), ('setTask',res.data.task)})
-    //     this.handleshowTaskFinishModal();
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
-
-    // ("setTask",res.data.task)
-
-    // CreateWork(work, task) {
-    //   this.$axios.post('http://localhost:3000/api/v1/works', {work, task})
-    //   .then(res => {commit('setWork', res.data.work) , commit('setTask',res.data.task) })
-    //   this.handleshowTaskFinishModal();
-    // },
 
     handleshowTaskFinishModal() {
       this.isVisibleTaskFinishModal = true;

@@ -4,46 +4,59 @@
       <h1 class="text-center font-bold">
         ログイン画面
       </h1>
-      <div class="mt-10 mb-4">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="username"
+      <ValidationObserver v-slot="{ handleSubmit }">
+        <div class="mt-10 mb-4">
+          <ValidationProvider
+            v-slot="{ errors }"
+            rules="required|email"
+          >
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="email"
+            >
+              メールアドレス
+            </label>
+            <input
+              id="email"
+              v-model="user.email"
+              class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              name="メールアドレス"
+            >
+            <br>
+            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+          </ValidationProvider>
+        </div>
+        <div class="mb-4">
+          <ValidationProvider
+            v-slot="{ errors }"
+            rules="required|min:6|max:20"
+          >
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="password"
+            >
+              パスワード
+            </label>
+            <input
+              id="password"
+              v-model="user.password"
+              class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              type="password"
+              name="パスワード"
+            >
+            <br>
+            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+          </ValidationProvider>
+        </div>
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+          @click="handleSubmit(login)"
         >
-          メールアドレス
-        </label>
-        <input
-          id="email"
-          v-model="user.email"
-          class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text"
-          placeholder=""
-        >
-      </div>
-      <div class="mb-6">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="password"
-        >
-          パスワード
-        </label>
-        <input
-          id="password"
-          v-model="user.password"
-          class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          type="password"
-          placeholder=""
-        >
-      </div>
-      <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        type="button"
-        @click="login"
-      >
-        ログイン
-      </button>
-      <!-- <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-        Forgot Password?
-      </a> -->
+          ログイン
+        </button>
+      </ValidationObserver>
     </form>
   </div>
 </template>
@@ -62,20 +75,6 @@ export default {
     }
   },
   methods: {
-    // async login() {
-    //   try {
-    //     const sessionsResponse = await this.$axios.post('user_sessions', this.user)
-    //     localStorage.auth_token = sessionsResponse.data.token
-    //     this.$axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.auth_token}`
-    //     const userResponse = await this.$axios.get('users/me')
-    //     this.user = userResponse.data
-    //     // this.loginUser(this.user);
-    //     this.$router.push({ name: 'TaskIndex' })
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
-
     ...mapActions("users", [
       "loginUser",
       "fetchUser",
@@ -83,6 +82,10 @@ export default {
     async login() {
       try {
         await this.loginUser(this.user);
+        this.$store.commit(`message/setContent`,{
+          content: 'ログインしました!',
+          timeout: 6000
+        }),
         this.$router.push({ name: 'TaskIndex' })
       } catch (error) {
         console.log(error);

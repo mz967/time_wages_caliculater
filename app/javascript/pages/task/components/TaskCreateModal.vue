@@ -15,45 +15,51 @@
         aria-hidden="true"
       >&#8203;</span>
       <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="sm:flex sm:items-start">
-            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-              <h3
-                id="modal-title"
-                class="text-lg leading-6 font-medium text-gray-900"
-              >
-                取り組みたいタスクの名称を入力してください
-              </h3>
-              <form class="m-5">
-                <div class="mb-4">
-                  <input
-                    id="title"
-                    v-model="task.title"
-                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                    type="text"
-                    placeholder="タスク名"
+        <ValidationObserver v-slot="{ handleSubmit }">
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <div class="mt-10 mb-4">
+                  <ValidationProvider
+                    v-slot="{ errors }"
+                    rules="required|max:30"
                   >
+                    <label
+                      class="block text-gray-700 text-sm font-bold mb-2"
+                      for="title"
+                    >
+                      取り組みたいタスクの名称を入力してください
+                    </label>
+                    <input
+                      id="title"
+                      v-model="task.title"
+                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+                      type="text"
+                      name="タイトル"
+                    >
+                    <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+                  </ValidationProvider>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <button
-            type="button"
-            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-            @click="handleCreateTask"
-          >
-            タスク作成
-          </button>
-          <button
-            type="button"
-            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-            @click="handleCloseModal"
-          >
-            閉じる
-          </button>
-        </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <button
+              type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+              @click="handleSubmit(handleCreateTask)"
+            >
+              タスク作成
+            </button>
+            <button
+              type="button"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              @click="handleCloseModal"
+            >
+              閉じる
+            </button>
+          </div>
+        </ValidationObserver>
       </div>
     </div>
   </div>

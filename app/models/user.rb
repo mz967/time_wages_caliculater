@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, { uniqueness: true, presence: true }
   validates :name, presence: true
-  validates :current_hourly_wage, { numeric: true, numericality: { greater_than_or_equal_to: 0 } }
+  validates :current_hourly_wage, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 end

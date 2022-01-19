@@ -17,17 +17,25 @@
         </div>
       </div>
       <div class="static h-4/1 w-5/6 pt-10 text-center" />
-      <p>
-        これまでの合計時間
-        <span>{{ total_timeH }}</span>時間
-        <span>{{ total_timeM }}</span>分
-        <span>{{ total_timeS }}</span>秒
-      </p>
-      <p>
-        これまでの合計金額
-        <span>{{ task.total_wage }}</span>
-        円
-      </p>
+      <div class="flex">
+        <p class="m-2">
+          これまでの合計時間
+          <span>{{ total_timeH }}</span>時間
+          <span>{{ total_timeM }}</span>分
+          <span>{{ total_timeS }}</span>秒
+        </p>
+        <p class="m-2">
+          これまでの合計金額
+          <span>{{ task.total_wage }}</span>
+          円
+        </p>
+      </div>
+      <router-link
+        :to="{name: 'TaskResult', params: {id: task.id}}"
+        class="mx-5 inline-flex items-center bg-blue-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base"
+      >
+        これまでのタスク取り組み状況
+      </router-link>
     </div>
     <div>
       <button
@@ -59,6 +67,8 @@
         :work="work"
         :task="task"
         @close-modal="handlecloseTaskFinishModal"
+        @evaluation-work="handleEvaluateThisWork"
+        @delete-work="handleDeleteThisWork"
       />
     </transition>
   </div>
@@ -184,21 +194,48 @@ export default {
     },
 
     handleCreateWork(work, task) {
-      this.$axios.post('http://localhost:3000/api/v1/works', {work, task})
+      this.$axios.post(`http://localhost:3000/api/v1/tasks/${task.id}/works`, {work, task})
         .then(res => {this.work = res.data.work, this.task = res.data.task})
       this.handleshowTaskFinishModal();
     },
 
     handleshowTaskFinishModal() {
       this.isVisibleTaskFinishModal = true;
-      // this.workDetail = this.work;
-      // this.taskFinishDetail = this.task;
     },
 
     handlecloseTaskFinishModal() {
       this.isVisibleTaskFinishModal = false;
       // this.workDetail = {};
       // this.taskFinishDetail = {};
+    },
+
+
+
+    async handleEvaluateThisWork(work, task) {
+      try {
+        await this.$axios.patch(`http://localhost:3000/api/v1/tasks/${task.id}/works/${work.id}`, {work, task})
+        .then(res => this.data = res.data)
+        this.isVisibleTaskFinishModal = false;
+        this.$store.commit(`message/setContent`,{
+          content: `評価${work.evaluation}点にて今回のタスクを登録しました!`,
+          timeout: 6000
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async handleDeleteThisWork(work, task) {
+      try {
+        await this.$axios.delete(`http://localhost:3000/api/v1/tasks/${task.id}/works/${work.id}`, {work, task})
+        this.isVisibleTaskFinishModal = false;
+        this.$store.commit(`message/setContent`,{
+          content: '今回のタスクを無しにしました!',
+          timeout: 6000
+        })
+      } catch (error) {
+        console.log(error);
+      }
     },
 
   }

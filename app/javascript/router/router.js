@@ -6,6 +6,7 @@ import HomeIntroduction from "../pages/home/introduction";
 import HomeNavigation from "../pages/home/navigation";
 import TaskIndex from "../pages/task/index";
 import TaskDetail from "../pages/task/detail";
+import TaskResult from "../pages/task/result";
 import RegisterNew from "../pages/register/new";
 import RegisterWage from "../pages/register/wage";
 import Login from "../pages/login/login";
@@ -40,6 +41,12 @@ const router = new Router({
       path: "/task/:id",
       component: TaskDetail,
       name: "TaskDetail",
+      meta: { requiredAuth: true },
+    },
+    {
+      path: "/task/:id/result",
+      component: TaskResult,
+      name: "TaskResult",
       meta: { requiredAuth: true },
     },
     {

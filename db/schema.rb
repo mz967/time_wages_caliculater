@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_232533) do
+ActiveRecord::Schema.define(version: 2021_12_29_115253) do
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title", null: false
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2021_12_07_232533) do
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "work_wage", null: false
+    t.integer "evaluation"
     t.index ["task_id"], name: "index_works_on_task_id"
   end
 

@@ -22,7 +22,7 @@
                 id="modal-title"
                 class="text-lg leading-6 font-medium text-gray-900"
               >
-                お疲れさまでした！！
+                お疲れさまでした!!
               </h3>
               <div class="mt-2">
                 <p class="text-sm text-gray-800">
@@ -31,7 +31,7 @@
                   <span>{{ work_timeM }}</span>分
                   <span>{{ work_timeS }}</span>秒で
                   <br>
-                  <span>{{ this_task_wage }}</span>円分の働きとなりました！！
+                  <span>{{ this_task_wage }}</span>円分の働きとなりました!
                 </p>
                 <br>
                 <p class="text-sm text-gray-800">
@@ -41,26 +41,74 @@
                   <span>{{ total_timeS }}</span>秒
                   となり
                   <br>
-                  累計の金額は<span>{{ task.total_wage }}</span>円となりました！
+                  累計の金額は<span>{{ task.total_wage }}</span>円となりました!
                 </p>
               </div>
+              <h3
+                class="text-lg leading-6 font-medium text-gray-900 mt-10"
+              >
+                今回のタスクの取り組みを評価してみましょう!
+              </h3>
+              <div class="flex">
+                <p>低</p>
+                <input
+                  id="range"
+                  v-model="work.evaluation"
+                  type="range"
+                  min="0"
+                  max="10"
+                  class="w-full"
+                  step="1"
+                  value="5"
+                  list="tickmarks"
+                >
+                <datalist id="tickmarks">
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                  <option value="4" />
+                  <option value="5" />
+                  <option value="6" />
+                  <option value="7" />
+                  <option value="8" />
+                  <option value="9" />
+                  <option value="10" />
+                </datalist>
+                <p>高</p>
+              </div>
+              <h1><span>{{ work.evaluation }}</span>点</h1>
             </div>
           </div>
         </div>
         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <router-link
+          <button
+            type="button"
+            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+            @click="handleDeleteWork"
+          >
+            今回は登録しない
+          </button>
+          <button
+            type="button"
+            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+            @click="handleEvaluationWork"
+          >
+            評価してタスクを終了する
+          </button>
+          <!-- <router-link
             :to="{ name: 'TaskIndex' }"
             type="button"
             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
           >
             タスク一覧へ
-          </router-link>
+          </router-link> -->
           <button
             type="button"
             class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
             @click="handleCloseModal"
           >
-            もう一度計測する
+            評価してタスクをもう一度計測する
           </button>
         </div>
       </div>
@@ -87,6 +135,9 @@ export default {
       hourly_wage: {
         type: Number,
         required: true
+      },
+      evaluation: {
+        type: Number
       }
     },
     task: {
@@ -150,6 +201,12 @@ export default {
     handleCloseModal() {
       this.$emit('close-modal')
     },
+    handleEvaluationWork() {
+      this.$emit('evaluation-work', this.work, this.task )
+    },
+    handleDeleteWork() {
+      this.$emit('delete-work', this.work, this.task)
+    }
   }
 }
 </script>

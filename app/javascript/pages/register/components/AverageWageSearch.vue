@@ -60,9 +60,9 @@
 
 export default {
   name: "AverageWageSearch",
-    data() {
-      return {
-        current_hourly_wage: "",
+  data() {
+    return {
+      current_hourly_wage: "",
       picked: "",
       ageLists: [
         { id: 1, label: "〜19歳" },

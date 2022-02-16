@@ -35,19 +35,15 @@ class Api::V1::WorksController < ApplicationController
     @task = Task.find_by(id: params[:task_id])
     @works = @task.works
     # 日別のデータを送るための作業
-    @work_daily_wages = Work.work_date.sum(:work_wage)
-    @evaluated_daily_wages = Work.work_date.sum(:evaluation)
-    # @work_daily_wages = Work.where(created_at: Time.current.beginning_of_month..Time.current.end_of_month).group('date(created_at)').sum(:work_wage)
-    # @evaluated_daily_wages = Work.where(created_at: Time.current.beginning_of_month..Time.current.end_of_month).group('date(created_at)').sum(:evaluation)
+    @work_daily_wages = @works.work_date.sum(:work_wage)
+    @evaluated_daily_wages = @works.work_date.sum(:evaluation)
     @work_days = @work_daily_wages.map { |key, _| key.strftime('%m/%d') }
     @daily_wages = @work_daily_wages.map { |_, val| val }
     @daily_evaluated_wages = @evaluated_daily_wages.map { |_, val| val }
 
     # 月別のデータを送るための作業
-    @work_monthly_wages = Work.work_month.sum(:work_wage)
-    @evaluated_monthly_wages = Work.work_month.sum(:evaluation)
-    # @work_monthly_wages = Work.where(created_at: Time.current.beginning_of_year..Time.current.end_of_year).group('month(created_at)').sum(:work_wage)
-    # @evaluated_monthly_wages = Work.where(created_at: Time.current.beginning_of_year..Time.current.end_of_year).group('month(created_at)').sum(:evaluation)
+    @work_monthly_wages = @works.work_month.sum(:work_wage)
+    @evaluated_monthly_wages = @works.work_month.sum(:evaluation)
     @work_months = @work_monthly_wages.map { |key, _| "#{key}月" }
     @monthly_wages = @work_monthly_wages.map { |_, val| val }
     @monthly_evaluated_wages = @evaluated_monthly_wages.map { |_, val| val }

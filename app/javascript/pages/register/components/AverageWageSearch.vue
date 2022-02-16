@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3>平均時給を参照する</h3>
-    <h4>働いていない方やお手軽に使用してみたい方、SNSなどに投稿したい方はこちらでの登録がおすすめ!</h4>
-    <p>厚生労働省のデータを参考にしています</p>
-    <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2020/dl/02.pdf">参考</a>
+    <h1 class="font-bold text-lg mb-6">◎平均時給を参照する</h1>
+    <p class="text-xs">※下記の厚生労働省のデータを参考にしています
+      <a>https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2020/dl/02.pdf</a>
+    </p>
     <br>
-    <form class="m-5">
+    <form class="mb-6">
       <h5>あなたの性別を選択してください</h5>
       <input
         id="1"
@@ -24,7 +24,7 @@
       <label for="2">女性</label>
       <br>
       <br>
-      <label for="age">現在の年齢を教えてください</label>
+      <label for="age">あなたの現在の年齢をお教えください</label>
       <br>
       <select
         id="age"
@@ -48,7 +48,7 @@
     </form>
     <button
       type="button"
-      class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+      class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
       @click="handleSearchAverageHourlyWage"
     >
       計算

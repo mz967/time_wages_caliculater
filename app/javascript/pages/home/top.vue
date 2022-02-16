@@ -1,98 +1,166 @@
 <template>
-  <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <div class="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
     <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
-      <div class="flex flex-col mb-16 sm:text-center">
+      <div class="flex flex-col mb-16">
         <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
           <template v-if="!authUser">
             <transition
-              v-if="homeIntroduction"
               name="introduction"
             >
-              <div>
-                <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                  時間 × 時給
-                </h2>
-                <p class="text-base text-gray-700 md:text-lg">
-                  あなたの時間をお金に換算してみませんか？
-                </p>
+              <div v-if="introduction_start">
+                <!-- <img src="../../images/Moneytimer.jpg" alt="" class="bg-gradient-to-t"> -->
+                <div class="background"></div>
+                <h1 class="max-w-lg mt-20 font-mono text-xl leading-none tracking-tight sm:text-6xl md:mx-auto font-extrabold text-shadow-2xl">
+                  時間賃金換算機
+                </h1>
               </div>
-            </transition>
 
-            <transition
-              v-if="homeLink"
-              name="link"
-            >
-              <div>
-                <h4 class="max-w-lg mb-6 font-sans text-lg font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                  時給換算とは...??
-                </h4>
-                <p class="text-base text-gray-700 md:text-lg">
-                  時給計算のメリット的なものを書く
-                  <br>
-                  「時給換算」と聞くとあまり聞き馴染みのない方がほとんどだと思います。
-                  <br>
-                  「時給換算」は自分の時間に金銭的価値を想定することで緊張感を持ってタスクに取り組むことができ、効率の良い時間の使い方を考えるきっかけを与えます。
-                  <br>
-                  時間賃金換算機ではそんな「時給換算」を効率的に行うお手伝いをします!
-                  <br>
-                  実際に「時給換算」を体験してみましょう!
-                </p>
-                <ul>
-                  <li>
-                    <router-link
-                      :to="{ name: 'TaskIndex' }"
-                      class="inline-flex items-center bg-blue-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-20"
-                    >
-                      試してみる!
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link
-                      :to="{ name: 'HomeIntroduction' }"
-                      class="inline-flex items-center bg-green-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-20 mb-10"
-                    >
-                      このアプリケーションをもっと知りたい...→
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link
-                      :to="{ name: 'HomeNavigation' }"
-                      class="inline-flex items-center bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mb-10"
-                    >
-                      さまざまな使い方の紹介→
-                    </router-link>
-                  </li>
-                </ul>
+              <div v-if="introduction_end">
+                <div class="text-left text-lg">
+                  <!-- <h1 class="text-3xl mb-20 font-bold">時間 ⇄ お金</h1> -->
+                  <p class="mb-10">
+                    時間賃金換算機ではあなたのタスクに取り組む時間を時給換算いたします。
+                  </p>
+                  <p class="mb-20">
+                    あなたもより緊張感を持った効率的な時間を過ごしませんか？
+                  </p>
+                  <div class="justify-center mb-32">
+                    <div class="text-center">
+                      <div class="container py-4">
+                        <!-- <div class="flex flex-nowrap m-4"> -->
+                          <div class="p-4 h-64 w-96 mx-auto">
+                            <router-link  :to="{ name: 'RegisterNew' }">
+                              <div class="h-full w-full  px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2 ">
+                                <h1 class="font-bold text-xl mb-6">ユーザー登録</h1>
+                                <div class="h-36 w-36 opacity-75 mx-auto mb-6">
+                                  <img src="../../images/User.jpg" alt="">
+                                </div>
+                              </div>
+                            </router-link>
+                          </div>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <div class="container py-4">
+                        <!-- <div class="flex flex-nowrap m-4"> -->
+                          <div class="p-4 h-64 w-96 mx-auto">
+                            <router-link  :to="{ name: 'HomeExplanation' }">
+                              <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative  shadow-xl bg-white border-2">
+                                <h1 class="font-bold text-xl mb-6">時給換算とは？</h1>
+                                <div class="h-36 w-36 mx-auto mb-6">
+                                  <img src="../../images/Question.jpg" alt="">
+                                </div>
+                              </div>
+                            </router-link>
+                          </div>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-center">
+                        <div class="container py-4">
+                          <!-- <div class="flex flex-nowrap m-4"> -->
+                            <div class="p-4 h-64 w-96 mx-auto">
+                              <router-link  :to="{ name: 'HomeIntroduction' }" >
+                                <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                                  <h1 class="font-bold text-xl mb-6">このアプリの使い方</h1>
+                                  <div class="h-36 w-36 mx-auto mb-6">
+                                    <img src="../../images/Work.jpg" alt="">
+                                  </div>
+                                </div>
+                              </router-link>
+                            </div>
+                          <!-- </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-center">
+                        <div class="container py-4">
+                          <!-- <div class="flex flex-nowrap m-4"> -->
+                            <div class="p-4 h-64 w-96 mx-auto">
+                              <router-link  :to="{ name: 'HomeNavigation' }">
+                                <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                                  <h1 class="font-bold text-xl mb-6">様々な使用例の紹介</h1>
+                                  <div class="flex h-36 w-24 mb-6">
+                                    <img src="../../images/Business.jpg" alt="" class="
+                                    ">
+                                    <img src="../../images/Studying.jpg" alt="" class="
+                                    ">
+                                    <img src="../../images/Housework.jpg" alt="" class="">
+                                  </div>
+                                </div>
+                              </router-link>
+                            </div>
+                          <!-- </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </transition>
           </template>
 
           <template v-else>
-            <div>
-              <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                時間 × 時給
-              </h2>
-              <p class="text-base text-gray-700 md:text-lg">
-                あなたならではの時給換算をしましょう!!
-              </p>
-              <ul>
-                <li>
-                  <router-link
-                    :to="{ name: 'HomeIntroduction' }"
-                    class="inline-flex items-center bg-green-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-20 mb-10"
-                  >
-                    このアプリケーションをもっと知りたい→
-                  </router-link>
-                </li>
-                <li>
-                  <router-link
-                    :to="{ name: 'HomeNavigation' }"
-                    class="inline-flex items-center bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mb-10"
-                  >
-                    さまざまな使い方の紹介→
-                  </router-link>
-                </li>
-              </ul>
+            <div class="justify-center mb-32">
+              <div class="text-center">
+                <div class="container py-4">
+                  <!-- <div class="flex flex-nowrap m-4"> -->
+                    <div class="p-4 h-64 w-96 mx-auto">
+                      <router-link  :to="{ name: 'HomeExplanation' }">
+                        <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative  shadow-xl bg-white border-2">
+                          <h1 class="font-bold text-xl mb-6">時給換算とは？</h1>
+                          <div class="h-36 w-36 mx-auto mb-6">
+                            <img src="../../images/Question.jpg" alt="">
+                          </div>
+                        </div>
+                      </router-link>
+                    </div>
+                  <!-- </div> -->
+                </div>
+              </div>
+              <div>
+                <div class="text-center">
+                  <div class="container py-4">
+                    <!-- <div class="flex flex-nowrap m-4"> -->
+                      <div class="p-4 h-64 w-96 mx-auto">
+                        <router-link  :to="{ name: 'HomeIntroduction' }" >
+                          <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                            <h1 class="font-bold text-xl mb-6">このアプリの使い方</h1>
+                            <div class="h-36 w-36 mx-auto mb-6">
+                              <img src="../../images/Work.jpg" alt="">
+                            </div>
+                          </div>
+                        </router-link>
+                      </div>
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="text-center">
+                  <div class="container py-4">
+                    <!-- <div class="flex flex-nowrap m-4"> -->
+                      <div class="p-4 h-64 w-96 mx-auto">
+                        <router-link  :to="{ name: 'HomeNavigation' }">
+                          <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                            <h1 class="font-bold text-xl mb-6">様々な使用例の紹介</h1>
+                            <div class="flex h-36 w-24 mb-6">
+                              <img src="../../images/Business.jpg" alt="" class="
+                              ">
+                              <img src="../../images/Studying.jpg" alt="" class="
+                              ">
+                              <img src="../../images/Housework.jpg" alt="" class="">
+                            </div>
+                          </div>
+                        </router-link>
+                      </div>
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
             </div>
           </template>
         </div>
@@ -108,27 +176,24 @@ export default {
   name: "HomeTop",
   data() {
     return {
-    homeIntroduction: true,
-    homeLink: false
+    introduction_start: true,
+    introduction_end: false
     }
   },
   computed: {
     ...mapGetters("users", ["authUser"])
   },
   created() {
-    this.changeHome()
-    // setTimeout(function(){this.changeHome = false}, 2000);
+    this.changeIntroductionStart()
   },
   methods: {
-    changeHome() {
-      // const self = this;
-      setTimeout(function(){this.homeIntroduction = false;}.bind(this) , 1000);
-      // this.homeIntroduction = false
-      // this.homeIntroduction = setTimeout(function(){false},10)
-      this.change()
+    changeIntroductionStart() {
+      setTimeout(function(){this.introduction_start = false;}.bind(this) , 1000);
+      this.changeIntroductionEnd()
     },
-    change(){
-      setTimeout(function(){this.homeLink = true;}.bind(this) , 3000);
+
+    changeIntroductionEnd(){
+      setTimeout(function(){this.introduction_end = true;}.bind(this) , 3000);
     }
   }
 }
@@ -143,12 +208,24 @@ export default {
     opacity: 0;
 }
 
-.link-enter-active, .link-leave-active{
+.introduction-leave-active, .introduction-enter-active{
     transition: opacity 2s
 }
 
-.link-enter, .link-leave-to{
+.introduction-enter-to, .introduction-leave{
+    opacity: 1;
+}
+
+/* .introduction-leave-to, .introduction-enter{
     opacity: 0;
+} */
+
+
+/* .link-leave-to, .link-enter{
+    opacity: 1;
+} */
+.background{
+  background-image: url("../../images/Moneytimer.jpg");
 }
 
 </style>

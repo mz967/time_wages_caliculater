@@ -3,6 +3,7 @@ import Router from "vue-router";
 import store from '../store/store';
 import HomeTop from "../pages/home/top";
 import HomeIntroduction from "../pages/home/introduction";
+import HomeExplanation from "../pages/home/explanation";
 import HomeNavigation from "../pages/home/navigation";
 import TaskIndex from "../pages/task/index";
 import TaskDetail from "../pages/task/detail";
@@ -22,12 +23,17 @@ const router = new Router({
       name: "HomeTop",
     },
     {
-      path: "/",
+      path: "/introduction",
       component: HomeIntroduction,
       name: "HomeIntroduction",
     },
     {
-      path: "/",
+      path: "/explanation",
+      component: HomeExplanation,
+      name: "HomeExplanation",
+    },
+    {
+      path: "/navigation",
       component: HomeNavigation,
       name: "HomeNavigation",
     },

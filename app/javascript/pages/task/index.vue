@@ -1,48 +1,49 @@
 <template>
   <div>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap  justify-center mb-32 ">
       <div
         v-for="task in tasks"
         :key="task.id"
+        class=""
       >
-        <div class="text-gray-600 body-font">
-          <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-nowrap -m-4">
+        <div class="text-white body-font text-center">
+          <div class="container py-4 mx-auto">
+            <!-- <div class="flex flex-nowrap m-4"> -->
               <div class="p-4 h-96 w-96">
                 <router-link :to="{name: 'TaskDetail', params: {id: task.id}}">
-                  <div class="h-full w-full bg-gray-300 bg-opacity-75 px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative ">
-                    <h1 class="tracking-widest text-gray-700 mb-1">
+                  <div class="h-full w-full bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl border-2">
+                    <h1 class="tracking-widest mb-1 text-xl">
                       {{ task.title }}
                     </h1>
-                    <div class="h-56 w-64 m-4 bg-white justify-center flex">
+                    <div class="h-56 w-64 m-4 bg-white  border-2 border-blue-200 justify-center rounded-lg flex">
                       <div
-                        class="w-24 bg-red-900 self-end"
-                        :style="{height: Math.floor(task.total_wage / 500000 * 100) + '%'}"
-                      />
+                        class="w-24 bg-gradient-to-b hover:bg-gradient-to-t from-yellow-200 via-yellow-500 to-yellow-300 shadow border-yellow-200 self-end rounded-lg"
+                        :style="{height: Math.floor(task.total_wage / 100000 * 100) + '%'}">
+                      </div>
                     </div>
                     <h2 class="m-4">
-                      累計金額 <span class="text-xl">{{ task.total_wage }}</span> 円
+                      累計 <span class="text-3xl">{{ task.total_wage }}</span> 円
                     </h2>
                   </div>
                 </router-link>
               </div>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
-      <div class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-nowrap -m-4">
+      <div class="text-white body-font">
+        <div class="container py-4 mx-auto">
+          <!-- <div class="flex flex-nowrap -m-4"> -->
             <div class="p-4 h-96 w-96">
               <div
                 id="create_task"
-                class="h-full bg-gray-300 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative"
+                class="h-full bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl border-2"
                 @click="handleShowTaskCreateModal"
               >
                 <i class="las la-plus text-6xl pt-20 " />
               </div>
             </div>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -106,8 +107,8 @@ export default {
         .then(res => this.tasks.push(task))
         .catch(err => console.log(err.status));
       // this.handlecloseTaskCreateModal();
-      // this.$router.go({path: this.$router.currentRoute.path, force: true})
-      this.fetchTasks()
+      this.$router.go({path: this.$router.currentRoute.path, force: true})
+      // this.fetchTasks()
       this.handlecloseTaskCreateModal()
       this.$store.commit(`message/setContent`,{
         content: 'タスクを作成しました!',
@@ -135,4 +136,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

@@ -7,7 +7,7 @@
   >
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div
-        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+        class="fixed inset-0 bg-blue-200 bg-opacity-75 transition-opacity"
         aria-hidden="true"
       />
       <span
@@ -21,15 +21,13 @@
               v-if="editor"
               class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
             >
-              <h3
+              <h1
                 id="modal-title"
-                class="text-lg leading-6 font-medium text-gray-900"
+                class="leading-6 text-lg mb-10 font-bold"
               >
-                編集したい事項の入力をしてください
-              </h3>
-              <br>
-              <div>
-                <h3>タスク名を変更する</h3>
+                ◎編集したい事項を確認してください。
+              </h1>
+              <div class="mb-10">
                 <ValidationObserver v-slot="{ handleSubmit }">
                   <div class="mb-4">
                     <ValidationProvider
@@ -37,51 +35,48 @@
                       rules="required|max:30"
                     >
                       <label
-                        class="block text-gray-700 text-sm font-bold mb-2"
+                        class="block mb-4"
                         for="title"
                       >
-                        更新するタスク名を入力してください。
+                        ・タスク名を変更
                       </label>
                       <input
                         id="title"
                         v-model="task.title"
-                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 mb-3 text-gray-700 leading-tight focus:outline-none"
                         type="text"
                         name="タスク名"
                       >
-                      <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+                      <span class="text-red-400 px-4 py-3 rounded relative">{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <button
                     type="button"
-                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-
+                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
                     @click="handleSubmit(handleUpdateTaskTitle)"
                   >
                     変更
                   </button>
                 </ValidationObserver>
               </div>
-              <br>
-              <div>
-                <h3>数値をリセットする</h3>
+              <div class="mb-14">
+                <h2 class="mb-4">・数値をリセット</h2>
                 <button
                   type="button"
-                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                   @click="handleResetConfirm"
                 >
-                  リセットする
+                  リセット
                 </button>
               </div>
-              <br>
-              <div>
-                <h3>タスクを削除する</h3>
+              <div class="mb-14">
+                <h2 class="mb-4">・タスクを削除</h2>
                 <button
                   type="button"
-                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-800 text-base font-medium text-white hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-500 via-red-700 to-red-500 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                   @click="handleDeleteConfirm"
                 >
-                  削除する
+                  削除
                 </button>
               </div>
             </div>
@@ -89,64 +84,73 @@
             <!-- 確認モーダル 数値リセット -->
             <div
               v-if="resetConfirm"
-              class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
+              class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left  text-red-600"
             >
-              <h3
+              <h1
                 id="modal-title"
-                class="text-lg leading-6 font-medium text-gray-900"
+                class="leading-6 text-3xl mb-10"
               >
-                本当に数値をリセットしてもよろしいですか?
-              </h3>
-              <br>
+                ☆☆注意☆☆
+              </h1> 
+              <h2 class="mb-6">
+                リセットを押したらこれまで記録してきた<br>
+                総合計時間・総合計金額の数値を消去します。<br>
+                本当にリセットをしてもよろしいですか？
+              </h2>
               <button
                 type="button"
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-400 text-base font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="handleResetCancel"
+                class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                @click="handleResetTask"
               >
-                やめる
+                リセット
               </button>
               <button
                 type="button"
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="handleResetTask"
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                @click="handleResetCancel"
               >
-                リセットする
+                戻る
               </button>
             </div>
 
             <!-- 確認モーダル データ削除 -->
             <div
               v-if="deleteConfirm"
-              class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
+              class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left text-red-600"
             >
-              <h3
-                id="modal-title"
-                class="text-lg leading-6 font-medium text-gray-900"
+              <h1
+                id="modal-title" 
+                class="leading-6 text-3xl mb-10"
               >
-                本当にこのタスクを削除してもよろしいですか?
-              </h3>
+                ☆☆注意☆☆
+              </h1>
+              <h2 class="mb-6">
+                削除を押したらこれまで記録してきたデータを<br>
+                タスクごと削除します。<br>
+                本当に削除をしてもよろしいですか？
+              </h2>
               <br>
               <button
                 type="button"
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-400 text-base font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="handleDeleteCancel"
+                class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                @click="handleDeleteTask"
               >
-                やめる
+                削除
               </button>
               <button
                 type="button"
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="handleDeleteTask"
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                @click="handleDeleteCancel"
               >
-                削除する
+                戻る
               </button>
             </div>
           </div>
         </div>
-        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
           <button
             type="button"
-            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
             @click="handleCloseModal"
           >
             閉じる

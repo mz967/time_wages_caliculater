@@ -1,63 +1,65 @@
 <template>
-  <div class="text-center">
-    <form class="bg-white rounded px-8 pt-6 pb-8 mb-4">
-      <h1 class="text-center font-bold">
-        ログイン画面
-      </h1>
-      <ValidationObserver v-slot="{ handleSubmit }">
-        <div class="mt-10 mb-4">
-          <ValidationProvider
-            v-slot="{ errors }"
-            rules="required|email"
-          >
-            <label
-              class="block text-gray-700 text-sm font-bold mb-2"
-              for="email"
-            >
-              メールアドレス
-            </label>
-            <input
-              id="email"
-              v-model="user.email"
-              class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              name="メールアドレス"
-            >
-            <br>
-            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
-          </ValidationProvider>
-        </div>
-        <div class="mb-4">
-          <ValidationProvider
-            v-slot="{ errors }"
-            rules="required|min:6|max:20"
-          >
-            <label
-              class="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
-            >
-              パスワード
-            </label>
-            <input
-              id="password"
-              v-model="user.password"
-              class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              type="password"
-              name="パスワード"
-            >
-            <br>
-            <span class="text-red-700 px-4 py-3 rounded relative">{{ errors[0] }}</span>
-          </ValidationProvider>
-        </div>
-        <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="button"
-          @click="handleSubmit(login)"
-        >
+  <div class="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
+    <div class="max-w-xl sm:mx-auto lg:max-w-2xl text-center">
+        <h1 class="font-bold text-3xl mb-6">
           ログイン
-        </button>
-      </ValidationObserver>
-    </form>
+        </h1>
+        <form class="rounded px-8 pt-6 pb-8 mb-4">
+          <ValidationObserver v-slot="{ handleSubmit }">
+            <div class="mt-10 mb-4">
+              <ValidationProvider
+                v-slot="{ errors }"
+                rules="required|email"
+              >
+                <label
+                  class="block text-sm font-bold mb-2"
+                  for="email"
+                >
+                  メールアドレス
+                </label>
+                <input
+                  id="email"
+                  v-model="user.email"
+                  class="shadow appearance-none border rounded w-64 py-2 mb-3 px-3 leading-tight focus:outline-none focus:shadow-outline text-gray-700"
+                  type="text"
+                  name="メールアドレス"
+                >
+                <br>
+                <span class="text-red-400 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+              </ValidationProvider>
+            </div>
+            <div class="mb-4">
+              <ValidationProvider
+                v-slot="{ errors }"
+                rules="required|min:6|max:20"
+              >
+                <label
+                  class="block text-sm font-bold mb-2"
+                  for="password"
+                >
+                  パスワード
+                </label>
+                <input
+                  id="password"
+                  v-model="user.password"
+                  class="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  type="password"
+                  name="パスワード"
+                >
+                <br>
+                <span class="text-red-400 px-4 py-3 rounded relative">{{ errors[0] }}</span>
+              </ValidationProvider>
+            </div>
+            <button
+              type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+              @click="handleSubmit(login)"
+            >
+              ログイン
+            </button>
+          </ValidationObserver>
+        </form>
+    </div>
   </div>
 </template>
 

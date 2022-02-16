@@ -1,55 +1,48 @@
 <template>
-  <div>
-    <h1 class="text-center mb-10 text-2xl">
+  <div class="w-full mb-20">
+    <h1 class="text-center mb-10 font-bold text-2xl">
       {{ task.title }}
     </h1>
     <StopWatchFunction
       :task="task"
       @create-work="handleCreateWork"
     />
-    <div class="relative shadow bg-gray-300 h-96 mt-10 pt-10 ">
-      <div class="static h-2/3 w-5/6 bg-white mx-auto px-8 pt-16">
-        <div
-          class="shadow bg-red-900 h-2/3 text-white text-center"
-          :style="{width: Math.floor(task.total_wage / 500000 * 100) + '%'}"
-        >
-          <h1>{{ task.total_wage }}</h1>
-        </div>
-      </div>
-      <div class="static h-4/1 w-5/6 pt-10 text-center" />
-      <div class="flex">
-        <p class="m-2">
-          これまでの合計時間
-          <span>{{ total_timeH }}</span>時間
-          <span>{{ total_timeM }}</span>分
-          <span>{{ total_timeS }}</span>秒
-        </p>
-        <p class="m-2">
-          これまでの合計金額
-          <span>{{ task.total_wage }}</span>
-          円
-        </p>
-      </div>
-      <router-link
-        :to="{name: 'TaskResult', params: {id: task.id}}"
-        class="mx-5 inline-flex items-center bg-blue-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base"
-      >
-        これまでのタスク取り組み状況
-      </router-link>
+    <div class="text-center mb-20">
+      <h2 class="mt-10 text-xl">
+        これまでの合計時間
+        <span class="text-5xl">{{ total_timeH }}</span>時間
+        <span class="text-5xl">{{ total_timeM }}</span>分
+        <span class="text-5xl">{{ total_timeS }}</span>秒
+      </h2>
+      <h2 class="mt-10 text-xl">
+        これまでの合計金額
+        <span class="text-5xl">{{ task.total_wage }}</span>
+        円
+      </h2>
     </div>
-    <div>
-      <button
-        class="inline-flex items-center bg-green-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 my-40"
+    <div class="text-center underline">
+      <div class="mb-6">
+        <router-link
+          :to="{name: 'TaskResult', params: {id: task.id}}"
+          class="hover:text-blue-500"
+        >
+          タスクの取組状況
+        </router-link>
+      </div>
+      <h1
+        class="hover:text-blue-500 mb-6"
         @click="handleShowTaskEditModal"
       >
-        編集する
-      </button>
-      <router-link
-        :to="{ name: 'TaskIndex' }"
-        class="inline-flex items-center bg-blue-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 my-40"
-      >
-        一覧へ戻る
-      </router-link>
+        タスクを編集する
+      </h1>
+      <div class="mb-6">
+        <router-link
+          :to="{ name: 'TaskIndex' }"
+          class="hover:text-blue-500"
+        >
+          一覧へ戻る
+        </router-link>
+      </div>
     </div>
 
     <transition name="fade">
@@ -78,7 +71,6 @@
 import TaskEditModal from "./components/TaskEditModal"
 import StopWatchFunction from "./components/StopWatchFunction"
 import TaskFinishModal from "./components/TaskFinishModal"
-// import { mapGetters, mapActions, mapState } from "vuex"
 
 export default {
   name: "TaskDetail",
@@ -89,9 +81,6 @@ export default {
   },
   data() {
     return {
-      // ...mapState("tasks", [
-      // "task"
-      // ]),
       isVisibleTaskEditModal: false,
       taskEdit: {},
       task: {},
@@ -101,13 +90,6 @@ export default {
   },
 
   computed: {
-    // ...mapGetters("tasks", [
-    //   "task",
-    //   "total_timeH",
-    //   "total_timeM",
-    //   "total_timeS",
-
-    // ]),
     total_timeH() {
       var total_timeH = Math.floor(this.task.total_time % (24 * 60 * 60) / (60 * 60));
       return total_timeH
@@ -120,11 +102,6 @@ export default {
       var total_timeS = this.task.total_time % (24 * 60 * 60) % (60 * 60) % 60;
       return total_timeS
     },
-
-    // graph_width() {
-    //   var graph_width = Math.floor(task.total_wage / 500000 * 100);
-    //   return graph_width
-    // }
   },
 
   created() {
@@ -132,19 +109,6 @@ export default {
   },
 
   methods: {
-    // ...mapActions(
-    //   "tasks", [
-    //   "fetchDetail",
-    //   "updateTask",
-    //   // "deleteTask",
-    //   "setTask",
-    //   ],
-    //   "works", [
-    //     "setWork",
-    //     // "createWork"
-    //   ]
-    // ),
-    
     // task取得
     fetchDetail() {
       this.$axios.get(`http://localhost:3000/api/v1/tasks/${this.$route.params.id}`)
@@ -205,8 +169,6 @@ export default {
 
     handlecloseTaskFinishModal() {
       this.isVisibleTaskFinishModal = false;
-      // this.workDetail = {};
-      // this.taskFinishDetail = {};
     },
 
 
@@ -237,7 +199,6 @@ export default {
         console.log(error);
       }
     },
-
   }
 }
 </script>

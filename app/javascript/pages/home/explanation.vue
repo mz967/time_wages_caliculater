@@ -45,6 +45,6 @@
 
 <script>
 export default {
-  name: "HomeIntroduction"
+  name: "HomeExplanation"
 }
 </script>

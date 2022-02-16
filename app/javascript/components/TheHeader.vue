@@ -1,20 +1,20 @@
 <template>
-  <header class="text-white body-font bg-blue-500">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-        <span class="ml-3 text-xl">時間賃金換算機</span>
-      </a>
-      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+  <header class="text-white bg-gradient-to-b hover:bg-gradient-to-t from-blue-700 to-blue-400">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row">
+      <router-link :to="{ name: 'HomeTop' }" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <span class="ml-3 text-3xl text-gray-100 font-mono hover:text-blue-200">時間賃金換算機</span>
+      </router-link>
+      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 	flex flex-wrap items-center text-base justify-center">
         <template v-if="!authUser">
           <router-link
             :to="{ name: 'Login' }"
-            class="mr-5 hover:text-gray-900"
+            class="mr-5 hover:text-blue-200"
           >
             ログイン
           </router-link>
           <router-link
             :to="{ name: 'RegisterNew' }"
-            class="mr-5 hover:text-gray-900"
+            class="mr-5 hover:text-blue-200"
           >
             新規登録
           </router-link>
@@ -22,25 +22,25 @@
         <template v-else>
           <router-link
             :to="{ name: 'HomeTop' }"
-            class="mr-5 hover:text-gray-900"
+            class="mr-5 hover:text-blue-200"
           >
             使用方法
           </router-link>
           <router-link
             :to="{ name: 'TaskIndex' }"
-            class="mr-5 hover:text-gray-900"
+            class="mr-5 hover:text-blue-200"
           >
             タスク一覧
           </router-link>
           <router-link
             :to="{ name: 'RegisterWage' }"
-            class="mr-5 hover:text-gray-900"
+            class="mr-5 hover:text-blue-200"
           >
             時給変更
           </router-link>
           <router-link
             to="#"
-            class="mr-5 hover:text-gray-900"
+            class="mr-5 hover:text-blue-200"
             @click.native="handleLogout"
           >
             ログアウト
@@ -79,3 +79,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* .section1{transform: skew(0deg, -6deg);}
+.section1 .container{transform: skew(0deg, 3deg);} */
+
+
+</style>

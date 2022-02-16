@@ -7,7 +7,7 @@
   >
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div
-        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+        class="fixed inset-0 bg-blue-200 bg-opacity-75 transition-opacity"
         aria-hidden="true"
       />
       <span
@@ -21,22 +21,24 @@
               <div v-if="show==='entrance'">
                 <h3
                   id="modal-title"
-                  class="text-lg leading-6 font-medium text-gray-900"
+                  class="text-lg leading-6 font-bold"
                 >
                   ◎時給の計算を行います
                 </h3>
                 <br>
-                <p>
-                  お仕事をされている方は源泉徴収票より金額と就業時間より時給を換算します。<br>
-                  (税金などの差し引きは致しません。もし税金控除後の金額で計算されたい場合は手取り額を月収や年収で登録してください。)
+                <p class="mb-2">
+                  お仕事をされている方は源泉徴収票より金額と就業時間より時給を換算します。
                 </p>
-                <p>アルバイトされている方はアルバイト先の時給を登録してください。</p>
-                <p>現在お仕事をされていない方は平均時給から登録するか、もしくは前の職場の給料を参考に登録することを推奨しています。</p>
-                <p>その他のケースの場合はお手数ですが、各々で計算をしていただき時給の欄に手書きをしてください。</p>
+                <p class="text-xs mb-6">
+                  ※ 税金などの差し引きは致しません。税金控除後の金額で計算されたい場合は手取り額を月収や年収で登録してください。
+                </p>
+                <p class="mb-6">アルバイトをされている方はアルバイト先の時給を登録してください。</p>
+                <p class="mb-6">現在お仕事をされていない方は平均時給から登録するか、もしくは前の職場の給料を参考に登録することを推奨しています。</p>
+                <p>その他のケースの場合はお手数ですが、各々で計算をしていただき時給の欄に入力をしてください。</p>
                 <br>
                 <button
                   type="button"
-                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
                   @click="handleShowSalaryBase"
                 >
                   現在お仕事をされている方はこちら→
@@ -46,10 +48,10 @@
 
                 <button
                   type="button"
-                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
                   @click="handleShowAverageWageBase"
                 >
-                  平均時給で登録→
+                  平均時給で登録したい方はこちら→
                 </button>
               </div>
 
@@ -64,10 +66,10 @@
           </div>
         </div>
               
-        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
           <button
             type="button"
-            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
             @click="handleCloseModal"
           >
             閉じる

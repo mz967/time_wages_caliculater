@@ -1,32 +1,28 @@
 <template>
-  <!-- <div class="flex "></div> -->
-  <div class="text-center bg-gray-100 shadow h-96 w-96 mx-auto rounded-full">
+  <div class="text-center bg-gradient-to-b hover:bg-gradient-to-t from-black to-blue-900 shadow h-96 w-full mx-auto border-8 border-gray-500 rounded-sm	 ">
     <div class="pt-32">
-      <p class="text-6xl mb-10">
-        {{ timerH }} : {{ timerM }} : {{ timerS }}
+      <p class="xl:text-8xl md:text-5xl sm:text-3xl mb-10 clock tracking-widest h-full w-full">
+        <span class="">{{ timerH }}</span> : <span class="">{{ timerM }}</span> : <span class="">{{ timerS }}</span>
       </p>
-      <!-- <h1>{{work.start_at}}</h1>
-      <h1>{{work.end_at}}</h1> -->
-      <button
+      <a
         v-show="watch"
-        class="inline-flex items-center bg-blue-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 my-40"
+        class="inline-flex items-center border-0 py-1 px-3 focus:outline-none text-white text-xl hover:bg-blue-500 rounded mt-4 my-40 font-bold"
         @click="handleStart()"
       >
-        計測スタート
-      </button>
-      <button
+        START
+      </a>
+      <a
         v-show="!watch"
-        class="inline-flex items-center bg-blue-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 my-40"
+        class="inline-flex items-center border-0 py-1 px-3 focus:outline-none text-white text-xl hover:bg-blue-500 rounded  mt-4 my-40 font-bold"
         @click="handleEnd()"
       >
-        計測ストップ
-      </button>
+        STOP
+      </a>
     </div>
   </div>
 </template>
 
 <script>
-// import { mapGetters, mapMutations, mapState } from "vuex"
 
 export default {
   name: 'StopWatchFunction',
@@ -58,9 +54,6 @@ export default {
   },
   data() {
     return {
-      // ...mapState("works", [
-      // "work",
-      // ]),
       startTime: 0 ,
       doingTime: 0 ,
       timerObject: null,
@@ -74,31 +67,21 @@ export default {
   },
 
   computed: {
-    // ...mapGetters("works", [
-    //   // "work",
-    //   "timerH",
-    //   "timerM",
-    //   "timerS",
-    //   ]),
     timerH(){
       var timerH = Math.floor( this.doingTime / 3600000 % 60 )
       return ( '0' + timerH ).slice(-2)
-      },
+    },
     timerM(){
       var timerM = Math.floor( this.doingTime / 60000 % 60 )
       return ( '0' + timerM ).slice(-2)
-      },
+    },
     timerS(){
       var timerS = Math.floor( this.doingTime / 1000 % 60 )
       return ( '0' + timerS ).slice(-2)
-      }
+    },
   },
 
   methods: {
-    // ...mapMutations("works", [
-    //   "timerStart",
-    //   "timerEnd",
-    // ]),
     countUp(){
       return this.doingTime = Date.now() - this.startTime
     },
@@ -123,44 +106,27 @@ export default {
       this.watch = true
       this.$emit('create-work', this.work, this.task)
     },
-
-    // async handleStart(work) {
-    //   try {
-    //     await this.timerStart(work);
-    //     this.watch = false
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
-    // async handleEnd({task, work}) {
-    //   try {
-    //     await this.timerEnd({task, work});
-    //     this.$emit('create-work', this.work)
-    //     this.watch = true
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
-    // async handleStart() {
-    //   try {
-    //     await this.timerStart();
-    //     this.watch = false
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
-    // async handleEnd(task) {
-    //   try {
-    //     await this.timerEnd(task);
-    //     this.$emit('create-work', this.work, this.task)
-    //     this.watch = true
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
   }
 }
 </script>
 
 <style scoped>
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #15151e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 時計の共通スタイル */
+.clock {
+  color: white;
+  /* text-shadow: 0 0 20px #0aafe6; */
+  line-height: 1.2;
+  text-align: center;
+}
+
 </style>

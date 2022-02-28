@@ -6,10 +6,11 @@
     <%= csp_meta_tag %>
 
     <%= javascript_pack_tag 'application' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
   </head>
 
   <body>
+    <%= javascript_pack_tag 'hello_vue' %>
     <%= yield %>
   </body>
 </html>

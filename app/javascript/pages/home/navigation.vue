@@ -3,10 +3,6 @@
     <div class="container px-5 py-24 mx-auto">
       <div class="flex items-center lg:w-3/5 mx-auto border-b pb-20 mb-40 border-blue-400 sm:flex-row flex-col">
         <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
-          <!-- <img
-            src="../../images/LINE_example.PNG"
-            alt=""
-          > -->
         </div>
         <div class="flex-grow sm:text-center text-center mt-6 sm:mt-0">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-2">
@@ -27,18 +23,10 @@
           </p>
         </div>
         <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
-          <!-- <img
-            src="../../images/LINE_example.PNG"
-            alt=""
-          > -->
         </div>
       </div>
       <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col mb-40">
         <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
-          <!-- <img
-            src="../../images/LINE_example.PNG"
-            alt=""
-          > -->
         </div>
         <div class="flex-grow sm:text-center text-center mt-6 sm:mt-0">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-2">

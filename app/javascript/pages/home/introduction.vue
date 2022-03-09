@@ -7,35 +7,35 @@
             <p class="mb-4">
               1.ユーザー登録にて現在のあなたの時給を登録していただきます。
             </p>
-            <img
+            <!-- <img
               src="../../images/LINE_example.PNG"
               alt=""
               class="w-24 h-full mb-10"
-            >
+            > -->
             <p class="mb-4">
               2.ログインをしてこれから取り組むタスクを登録してください。
             </p>
-            <img
+            <!-- <img
               src="../../images/LINE_example.PNG"
               alt=""
               class="w-24 h-full mb-10"
-            >
+            > -->
             <p class="mb-4">
               3.タスクの詳細画面のストップウォッチで取り組み時間を計測してみましょう。
             </p>
-            <img
+            <!-- <img
               src="../../images/LINE_example.PNG"
               alt=""
               class="w-24 h-full mb-10"
-            >
+            > -->
             <p class="mb-4">
               4.タスクがひと段落したらストップウォッチを止めて行動の反省をしてみましょう。
             </p>
-            <img
+            <!-- <img
               src="../../images/LINE_example.PNG"
               alt=""
               class="w-24 h-full mb-10"
-            >
+            > -->
           </div>
         </div>
       </div>

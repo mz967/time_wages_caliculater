@@ -20,5 +20,5 @@ Rails.application.routes.draw do
       resources :user_sessions
     end
   end
-  # get '*path', to: 'home#top'
+  get '*path', to: 'home#top'
 end

@@ -34,6 +34,8 @@ gem 'jwt'
 # フォーム作成
 # gem 'simple_form'
 
+gem 'tailwindcss-rails'
+
 group :development, :test do
   # BetterErrors
   gem 'better_errors'

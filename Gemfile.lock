@@ -296,6 +296,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    tailwindcss-rails (2.0.8-x86_64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.8-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -356,6 +360,7 @@ DEPENDENCIES
   sorcery
   spring
   spring-watcher-listen (~> 2.0.0)
+  tailwindcss-rails
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers

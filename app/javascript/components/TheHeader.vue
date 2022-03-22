@@ -81,8 +81,5 @@ export default {
 </script>
 
 <style scoped>
-/* .section1{transform: skew(0deg, -6deg);}
-.section1 .container{transform: skew(0deg, 3deg);} */
-
 
 </style>

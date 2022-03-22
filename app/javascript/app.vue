@@ -1,13 +1,13 @@
 <template>
   <div id="app" class=" text-shadow  content-center text-blue-700">
-    <TheHeader class="slanted type1"/>
+    <TheHeader class=""/>
     <main class="container mx-auto px-5 flex flex-col min-h-screen">
       <div  class="w-full h-24">
         <Message class="ml-20"/>
       </div>
       <router-view />
     </main>
-    <TheFooter class="slant type2"/>
+    <TheFooter class=""/>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
 
 
 <style scoped>
-.slanted {
+/* .slanted {
   padding: 70px 0;
   position: relative;
   margin: 0 auto 20px;
@@ -88,7 +88,7 @@ export default {
 .type2:before {
   border-width: 0 0 100px 100vw;
   border-color: transparent transparent transparent #fff;
-}
+} */
 
 </style>
 

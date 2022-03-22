@@ -4,7 +4,9 @@ module.exports = {
     './app/**/*.html.slim',
     './app/helpers/**/*.rb',
     './app/javascript/packs/**/*.js',
-    './app/javascript/packs/**/*.vue'
+    './app/javascript/pages/*.js',
+    './app/javascript/pages/**/*.vue',
+    './app/javascript/pages/*.vue'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {

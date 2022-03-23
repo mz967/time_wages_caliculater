@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="text-shadow  content-center text-blue-700">
-    <TheHeader class="bg-gradient-to-b hover:bg-gradient-to-t from-blue-700 to-blue-400"/>
+    <TheHeader/>
     <main class="container mx-auto px-5 flex flex-col min-h-screen">
       <div  class="w-full h-24">
         <Message class="ml-20"/>

@@ -1,15 +1,13 @@
 <template>
-  <div id="app">
-    <div class="text-shadow  content-center text-blue-700">
-      <TheHeader class=""/>
-      <main class="container mx-auto px-5 flex flex-col min-h-screen">
-        <div  class="w-full h-24">
-          <Message class="ml-20"/>
-        </div>
-        <router-view />
-      </main>
-      <TheFooter class=""/>
-    </div>
+  <div id="app" class="text-shadow  content-center text-blue-700">
+    <TheHeader class=""/>
+    <main class="container mx-auto px-5 flex flex-col min-h-screen">
+      <div  class="w-full h-24">
+        <Message class="ml-20"/>
+      </div>
+      <router-view />
+    </main>
+    <TheFooter class=""/>
   </div>
 </template>
 

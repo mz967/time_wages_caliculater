@@ -1,21 +1,34 @@
 const { environment } = require('@rails/webpacker')
 const { VueLoaderPlugin } = require('vue-loader')
 const vue = require('./loaders/vue')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-environment.loaders.delete('css')
-environment.loaders.delete('sass')
-environment.loaders.delete('moduleSass')
-environment.loaders.delete('moduleCss')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// environment.loaders.delete('css')
+// environment.loaders.delete('sass')
+// environment.loaders.delete('moduleSass')
+// environment.loaders.delete('moduleCss')
 
-environment.loaders.prepend('scss', {
-  test: /\.(css|sass|scss)$/,
-  use: [
-    MiniCssExtractPlugin.loader,
-    'css-loader'
-    // 'sass-loader'
-    // 'import-glob-loader'
-  ]
-})
+// environment.loaders.prepend('scss', {
+//   test: /\.(css|sass|scss)$/,
+//   use: [
+//     MiniCssExtractPlugin.loader,
+//     'css-loader'
+//     // 'sass-loader'
+//     // 'import-glob-loader'
+//   ]
+// })
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
+  },
+};
 
 environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.prepend('vue', vue)

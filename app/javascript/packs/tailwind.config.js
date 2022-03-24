@@ -6,7 +6,9 @@ module.exports = {
     './app/javascript/packs/**/*.js',
     './app/javascript/pages/*.js',
     './app/javascript/pages/**/*.vue',
-    './app/javascript/pages/*.vue'
+    './app/javascript/pages/**/**/*.vue',
+    './app/javascript/pages/*.vue',
+    './app/javascript/components/*.vue'
   ],
   preserveHtmlElements: false,
   options: {

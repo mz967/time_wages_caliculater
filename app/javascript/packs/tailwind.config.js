@@ -1,10 +1,13 @@
 module.exports = {
   purge: [
     './app/**/*.html.erb',
-    './app/**/*.html.slim',
+    './app/views/home/*.html.erb',
     './app/helpers/**/*.rb',
-    './app/javascript/packs/**/*.js',
+    './app/javascript/packs/*.js',
+    './app/javascript/**/*.js',
+    './app/javascript/**/**/*.js',
     './app/javascript/pages/*.js',
+    './app/javascript/pages/*.vue',
     './app/javascript/pages/**/*.vue',
     './app/javascript/pages/**/**/*.vue',
     './app/javascript/pages/*.vue',

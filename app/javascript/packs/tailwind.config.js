@@ -11,7 +11,8 @@ module.exports = {
     './app/javascript/pages/**/*.vue',
     './app/javascript/pages/**/**/*.vue',
     './app/javascript/pages/*.vue',
-    './app/javascript/components/*.vue'
+    './app/javascript/components/*.vue',,
+    './app/javascript/*.vue'
   ],
   preserveHtmlElements: false,
   options: {

@@ -40,7 +40,10 @@
                 class="h-full bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl border-2"
                 @click="handleShowTaskCreateModal"
               >
-                <i class="las la-plus text-6xl pt-20 " />
+                <p class="text-6xl pt-20 ">
+                  ＋
+                </p>
+
               </div>
             </div>
           <!-- </div> -->

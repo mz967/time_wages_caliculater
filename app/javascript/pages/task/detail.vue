@@ -111,7 +111,7 @@ export default {
   methods: {
     // task取得
     fetchDetail() {
-      this.$axios.get(`http://localhost:3000/api/v1/tasks/${this.$route.params.id}`)
+      this.$axios.get( process.env.VUE_BASE_API + `tasks/${this.$route.params.id}`)
         // ここはなぜかフルで書かないと機能しない後で調べる
         .then(res => this.task = res.data)
         .catch(err => console.log(err.status));
@@ -130,7 +130,7 @@ export default {
     // タイトル変更
     async handleUpdateTask(task) {
       try {
-        await this.$axios.patch(`https://time-wages-calculator.herokuapp.com/api/v1/api/v1/tasks/${task.id}`, task)
+        await this.$axios.patch( process.env.VUE_BASE_API + `tasks/${task.id}`, task)
         .then(res => this.data = res.data)
         this.CloseTaskEditModal();
         this.$store.commit(`message/setContent`,{
@@ -146,7 +146,7 @@ export default {
     async handleDeleteTask(task) {
       try {
         // await this.deleteTask(task);
-        await this.$axios.delete(`https://time-wages-calculator.herokuapp.com/api/v1/api/v1/tasks/${task.id}`, task)
+        await this.$axios.delete( process.env.VUE_BASE_API + `tasks/${task.id}`, task)
         this.$router.push({ name: 'TaskIndex' })
         this.$store.commit(`message/setContent`,{
           content: 'タスクを破棄しました!',
@@ -158,7 +158,7 @@ export default {
     },
 
     handleCreateWork(work, task) {
-      this.$axios.post(`https://time-wages-calculator.herokuapp.com/api/v1/api/v1/tasks/${task.id}/works`, {work, task})
+      this.$axios.post( process.env.VUE_BASE_API + `tasks/${task.id}/works`, {work, task})
         .then(res => {this.work = res.data.work, this.task = res.data.task})
       this.handleshowTaskFinishModal();
     },
@@ -175,7 +175,7 @@ export default {
 
     async handleEvaluateThisWork(work, task) {
       try {
-        await this.$axios.patch(`https://time-wages-calculator.herokuapp.com/api/v1/api/v1/tasks/${task.id}/works/${work.id}`, {work, task})
+        await this.$axios.patch( process.env.VUE_BASE_API + `tasks/${task.id}/works/${work.id}`, {work, task})
         .then(res => this.data = res.data)
         this.isVisibleTaskFinishModal = false;
         this.$store.commit(`message/setContent`,{
@@ -189,7 +189,7 @@ export default {
 
     async handleDeleteThisWork(work, task) {
       try {
-        await this.$axios.delete(`https://time-wages-calculator.herokuapp.com/api/v1/api/v1/tasks/${task.id}/works/${work.id}`, {work, task})
+        await this.$axios.delete( process.env.VUE_BASE_API + `tasks/${task.id}/works/${work.id}`, {work, task})
         this.isVisibleTaskFinishModal = false;
         this.$store.commit(`message/setContent`,{
           content: '今回のタスクを無しにしました!',

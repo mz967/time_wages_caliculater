@@ -35,10 +35,7 @@
       v-if="selectedDating===1 || selectedDating===2"
       :chart-data="dataCollection"
     />
-
   </div>
-
-
 </template>
 
 <script>

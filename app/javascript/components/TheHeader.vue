@@ -1,7 +1,10 @@
 <template>
   <header class="text-white bg-gradient-to-b hover:bg-gradient-to-t from-blue-700 to-blue-400">
     <div class="container mx-auto flex flex-wrap p-10 flex-col md:flex-row">
-      <router-link :to="{ name: 'HomeTop' }" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+      <router-link
+        :to="{ name: 'HomeTop' }"
+        class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
+      >
         <span class="ml-3 text-3xl text-gray-100 font-mono hover:text-blue-200">時間賃金換算機</span>
       </router-link>
       <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 	flex flex-wrap items-center text-base justify-center">

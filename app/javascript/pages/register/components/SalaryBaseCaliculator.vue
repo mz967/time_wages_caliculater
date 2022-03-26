@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div v-if="style==='select'" class="flex">
+    <div
+      v-if="style==='select'"
+      class="flex"
+    >
       <button
         type="button"
         class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
@@ -20,7 +23,9 @@
     </div>
 
     <div v-else-if="style==='monthly_income'">
-      <h3 class="font-bold text-lg mb-6">◎月収より計算する</h3>
+      <h3 class="font-bold text-lg mb-6">
+        ◎月収より計算する
+      </h3>
       <ValidationObserver v-slot="{ handleSubmit }">
         <div class="mb-4">
           <ValidationProvider
@@ -77,7 +82,9 @@
     </div>
 
     <div v-else-if="style==='annual_income'">
-      <h3 class="text-lg font-bold mb-6">◎年収より計算する</h3>
+      <h3 class="text-lg font-bold mb-6">
+        ◎年収より計算する
+      </h3>
       <ValidationObserver v-slot="{ handleSubmit }">
         <div class="mb-4">
           <ValidationProvider

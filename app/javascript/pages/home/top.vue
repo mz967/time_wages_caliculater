@@ -9,7 +9,7 @@
             >
               <div v-if="introduction_start">
                 <!-- <img src="../../images/Moneytimer.jpg" alt="" class="bg-gradient-to-t"> -->
-                <div class="background"></div>
+                <div class="background" />
                 <h1 class="max-w-lg mt-20 font-mono text-xl leading-none tracking-tight sm:text-6xl md:mx-auto font-extrabold text-shadow-2xl">
                   時間賃金換算機
                 </h1>
@@ -28,32 +28,42 @@
                     <div class="text-center">
                       <div class="container py-4">
                         <!-- <div class="flex flex-nowrap m-4"> -->
-                          <div class="p-4 h-64 w-96 mx-auto">
-                            <router-link  :to="{ name: 'RegisterNew' }">
-                              <div class="h-full w-full  px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2 ">
-                                <h1 class="font-bold text-xl mb-6">ユーザー登録</h1>
-                                <div class="h-36 w-36 opacity-75 mx-auto mb-6">
-                                  <img src="../../images/User.jpg" alt="">
-                                </div>
+                        <div class="p-4 h-64 w-96 mx-auto">
+                          <router-link :to="{ name: 'RegisterNew' }">
+                            <div class="h-full w-full  px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2 ">
+                              <h1 class="font-bold text-xl mb-6">
+                                ユーザー登録
+                              </h1>
+                              <div class="h-36 w-36 opacity-75 mx-auto mb-6">
+                                <img
+                                  src="../../images/User.jpg"
+                                  alt=""
+                                >
                               </div>
-                            </router-link>
-                          </div>
+                            </div>
+                          </router-link>
+                        </div>
                         <!-- </div> -->
                       </div>
                     </div>
                     <div class="text-center">
                       <div class="container py-4">
                         <!-- <div class="flex flex-nowrap m-4"> -->
-                          <div class="p-4 h-64 w-96 mx-auto">
-                            <router-link  :to="{ name: 'HomeExplanation' }">
-                              <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative  shadow-xl bg-white border-2">
-                                <h1 class="font-bold text-xl mb-6">時給換算とは？</h1>
-                                <div class="h-36 w-36 mx-auto mb-6">
-                                  <img src="../../images/Question.jpg" alt="">
-                                </div>
+                        <div class="p-4 h-64 w-96 mx-auto">
+                          <router-link :to="{ name: 'HomeExplanation' }">
+                            <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative  shadow-xl bg-white border-2">
+                              <h1 class="font-bold text-xl mb-6">
+                                時給換算とは？
+                              </h1>
+                              <div class="h-36 w-36 mx-auto mb-6">
+                                <img
+                                  src="../../images/Question.jpg"
+                                  alt=""
+                                >
                               </div>
-                            </router-link>
-                          </div>
+                            </div>
+                          </router-link>
+                        </div>
                         <!-- </div> -->
                       </div>
                     </div>
@@ -61,16 +71,21 @@
                       <div class="text-center">
                         <div class="container py-4">
                           <!-- <div class="flex flex-nowrap m-4"> -->
-                            <div class="p-4 h-64 w-96 mx-auto">
-                              <router-link  :to="{ name: 'HomeIntroduction' }" >
-                                <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
-                                  <h1 class="font-bold text-xl mb-6">このアプリの使い方</h1>
-                                  <div class="h-36 w-36 mx-auto mb-6">
-                                    <img src="../../images/Work.jpg" alt="">
-                                  </div>
+                          <div class="p-4 h-64 w-96 mx-auto">
+                            <router-link :to="{ name: 'HomeIntroduction' }">
+                              <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                                <h1 class="font-bold text-xl mb-6">
+                                  このアプリの使い方
+                                </h1>
+                                <div class="h-36 w-36 mx-auto mb-6">
+                                  <img
+                                    src="../../images/Work.jpg"
+                                    alt=""
+                                  >
                                 </div>
-                              </router-link>
-                            </div>
+                              </div>
+                            </router-link>
+                          </div>
                           <!-- </div> -->
                         </div>
                       </div>
@@ -79,20 +94,34 @@
                       <div class="text-center">
                         <div class="container py-4">
                           <!-- <div class="flex flex-nowrap m-4"> -->
-                            <div class="p-4 h-64 w-96 mx-auto">
-                              <router-link  :to="{ name: 'HomeNavigation' }">
-                                <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
-                                  <h1 class="font-bold text-xl mb-6">様々な使用例の紹介</h1>
-                                  <div class="flex h-36 w-24 mb-6">
-                                    <img src="../../images/Business.jpg" alt="" class="
-                                    ">
-                                    <img src="../../images/Studying.jpg" alt="" class="
-                                    ">
-                                    <img src="../../images/Housework.jpg" alt="" class="">
-                                  </div>
+                          <div class="p-4 h-64 w-96 mx-auto">
+                            <router-link :to="{ name: 'HomeNavigation' }">
+                              <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                                <h1 class="font-bold text-xl mb-6">
+                                  様々な使用例の紹介
+                                </h1>
+                                <div class="flex h-36 w-24 mb-6">
+                                  <img
+                                    src="../../images/Business.jpg"
+                                    alt=""
+                                    class="
+                                    "
+                                  >
+                                  <img
+                                    src="../../images/Studying.jpg"
+                                    alt=""
+                                    class="
+                                    "
+                                  >
+                                  <img
+                                    src="../../images/Housework.jpg"
+                                    alt=""
+                                    class=""
+                                  >
                                 </div>
-                              </router-link>
-                            </div>
+                              </div>
+                            </router-link>
+                          </div>
                           <!-- </div> -->
                         </div>
                       </div>
@@ -108,16 +137,21 @@
               <div class="text-center">
                 <div class="container py-4">
                   <!-- <div class="flex flex-nowrap m-4"> -->
-                    <div class="p-4 h-64 w-96 mx-auto">
-                      <router-link  :to="{ name: 'HomeExplanation' }">
-                        <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative  shadow-xl bg-white border-2">
-                          <h1 class="font-bold text-xl mb-6">時給換算とは？</h1>
-                          <div class="h-36 w-36 mx-auto mb-6">
-                            <img src="../../images/Question.jpg" alt="">
-                          </div>
+                  <div class="p-4 h-64 w-96 mx-auto">
+                    <router-link :to="{ name: 'HomeExplanation' }">
+                      <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative  shadow-xl bg-white border-2">
+                        <h1 class="font-bold text-xl mb-6">
+                          時給換算とは？
+                        </h1>
+                        <div class="h-36 w-36 mx-auto mb-6">
+                          <img
+                            src="../../images/Question.jpg"
+                            alt=""
+                          >
                         </div>
-                      </router-link>
-                    </div>
+                      </div>
+                    </router-link>
+                  </div>
                   <!-- </div> -->
                 </div>
               </div>
@@ -125,16 +159,21 @@
                 <div class="text-center">
                   <div class="container py-4">
                     <!-- <div class="flex flex-nowrap m-4"> -->
-                      <div class="p-4 h-64 w-96 mx-auto">
-                        <router-link  :to="{ name: 'HomeIntroduction' }" >
-                          <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
-                            <h1 class="font-bold text-xl mb-6">このアプリの使い方</h1>
-                            <div class="h-36 w-36 mx-auto mb-6">
-                              <img src="../../images/Work.jpg" alt="">
-                            </div>
+                    <div class="p-4 h-64 w-96 mx-auto">
+                      <router-link :to="{ name: 'HomeIntroduction' }">
+                        <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                          <h1 class="font-bold text-xl mb-6">
+                            このアプリの使い方
+                          </h1>
+                          <div class="h-36 w-36 mx-auto mb-6">
+                            <img
+                              src="../../images/Work.jpg"
+                              alt=""
+                            >
                           </div>
-                        </router-link>
-                      </div>
+                        </div>
+                      </router-link>
+                    </div>
                     <!-- </div> -->
                   </div>
                 </div>
@@ -143,20 +182,34 @@
                 <div class="text-center">
                   <div class="container py-4">
                     <!-- <div class="flex flex-nowrap m-4"> -->
-                      <div class="p-4 h-64 w-96 mx-auto">
-                        <router-link  :to="{ name: 'HomeNavigation' }">
-                          <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
-                            <h1 class="font-bold text-xl mb-6">様々な使用例の紹介</h1>
-                            <div class="flex h-36 w-24 mb-6">
-                              <img src="../../images/Business.jpg" alt="" class="
-                              ">
-                              <img src="../../images/Studying.jpg" alt="" class="
-                              ">
-                              <img src="../../images/Housework.jpg" alt="" class="">
-                            </div>
+                    <div class="p-4 h-64 w-96 mx-auto">
+                      <router-link :to="{ name: 'HomeNavigation' }">
+                        <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2">
+                          <h1 class="font-bold text-xl mb-6">
+                            様々な使用例の紹介
+                          </h1>
+                          <div class="flex h-36 w-24 mb-6">
+                            <img
+                              src="../../images/Business.jpg"
+                              alt=""
+                              class="
+                              "
+                            >
+                            <img
+                              src="../../images/Studying.jpg"
+                              alt=""
+                              class="
+                              "
+                            >
+                            <img
+                              src="../../images/Housework.jpg"
+                              alt=""
+                              class=""
+                            >
                           </div>
-                        </router-link>
-                      </div>
+                        </div>
+                      </router-link>
+                    </div>
                     <!-- </div> -->
                   </div>
                 </div>

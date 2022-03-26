@@ -28,18 +28,34 @@ const environment = {
   ]
 }
 
-if (process.env.RAILS_ENV === "production") {
-  environment.plugins.push(
-    require('@fullhuman/postcss-purgecss')({
-      content: [
-        './app/**/*.html.erb',
-        './app/**/*.html.slim',
-        './app/**/*.js.erb',
-        './app/helpers/**/*.rb',
-      ],
-      whitelist: ['img', 'video', ':root'],
-    })
-  )
-}
+// if (process.env.RAILS_ENV === "production") {
+//   environment.plugins.push(
+//     require('@fullhuman/postcss-purgecss')({
+//       content: [
+//         './app/**/*.html.erb',
+//         './app/**/*.html.slim',
+//         './app/**/*.js.erb',
+//         './app/helpers/**/*.rb',
+//       ],
+//       whitelist: ['img', 'video', ':root'],
+//     })
+//   )
+// }
+
+// if (process.env.RAILS_ENV === "production") {
+//   environment.plugins.push(
+//     require('@fullhuman/postcss-purgecss')({
+//       content: [
+//         './app/**/*.html.erb',
+//         './app/**/*.js.erb',
+//         './app/helpers/**/*.rb',
+//         './app/javascript/pages/*.vue',
+//         './app/javascript/pages/**/*.vue',
+//       ],
+//       safelist: ['a', 'open'],
+//       defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+//     })
+//   )
+// }
 
 module.exports = environment

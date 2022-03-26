@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1 class="font-bold text-lg mb-6">◎平均時給を参照する</h1>
-    <p class="text-xs">※下記の厚生労働省のデータを参考にしています
+    <h1 class="font-bold text-lg mb-6">
+      ◎平均時給を参照する
+    </h1>
+    <p class="text-xs">
+      ※下記の厚生労働省のデータを参考にしています
       <a>https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2020/dl/02.pdf</a>
     </p>
     <br>

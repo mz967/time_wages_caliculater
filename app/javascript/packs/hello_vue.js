@@ -11,7 +11,7 @@ import router from '../router/router'
 import axios from '../plugins/axios'
 import '../plugins/veevalidate'
 import store from '../store/store'
-import 'line-awesome/dist/line-awesome/css/line-awesome.min.css'
+// import 'line-awesome/dist/line-awesome/css/line-awesome.min.css'
 
 import '../css/tailwind.css'
 

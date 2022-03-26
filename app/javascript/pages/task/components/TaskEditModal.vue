@@ -60,7 +60,9 @@
                 </ValidationObserver>
               </div>
               <div class="mb-14">
-                <h2 class="mb-4">・数値をリセット</h2>
+                <h2 class="mb-4">
+                  ・数値をリセット
+                </h2>
                 <button
                   type="button"
                   class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
@@ -70,7 +72,9 @@
                 </button>
               </div>
               <div class="mb-14">
-                <h2 class="mb-4">・タスクを削除</h2>
+                <h2 class="mb-4">
+                  ・タスクを削除
+                </h2>
                 <button
                   type="button"
                   class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-500 via-red-700 to-red-500 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"

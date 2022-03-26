@@ -51,7 +51,9 @@
                 今回のタスクの取り組みを評価してみましょう!
               </h3>
               <div class="flex mb-3">
-                <p class="m-2">低</p>
+                <p class="m-2">
+                  低
+                </p>
                 <input
                   id="range"
                   v-model="work.evaluation"
@@ -76,7 +78,9 @@
                   <option value="9" />
                   <option value="10" />
                 </datalist>
-                <p class="m-2">高</p>
+                <p class="m-2">
+                  高
+                </p>
               </div>
               <h1><span class="text-xl">{{ work.evaluation }}</span>点</h1>
             </div>

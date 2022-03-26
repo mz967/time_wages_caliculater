@@ -97,13 +97,13 @@ export default {
 
   methods: {
     fetchDetailTask() {
-      this.$axios.get(`http://localhost:3000/api/v1/tasks/${this.$route.params.id}`)
+      this.$axios.get( `${process.env.VUE_BASE_API}/tasks/${this.$route.params.id}`)
         .then(res => this.task = res.data)
         .catch(err => console.log(err.status));
     },
 
     fetchWorks() {
-      this.$axios.get(`http://localhost:3000/api/v1/tasks/${this.$route.params.id}/works`)
+      this.$axios.get( `${process.env.VUE_BASE_API}/tasks/${this.$route.params.id}/works`)
         .then(res => {
           this.daily_wages = res.data.daily_wages, 
           this.work_days = res.data.work_days, 

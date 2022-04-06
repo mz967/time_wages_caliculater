@@ -97,14 +97,14 @@
           <button
             type="button"
             class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-xs"
-            @click="handleEvaluationWork"
+            @click="handleEvaluationWorkIndex"
           >
             評価してタスクを終了する
           </button>
           <button
             type="button"
             class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-green-400 via-green-500 to-green-400 text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-xs"
-            @click="handleCloseModal"
+            @click="handleEvaluationWorksClose"
           >
             評価してタスクをもう一度計測する
           </button>
@@ -198,8 +198,11 @@ export default {
     handleCloseModal() {
       this.$emit('close-modal')
     },
-    handleEvaluationWork() {
-      this.$emit('evaluation-work', this.work, this.task )
+    handleEvaluationWorksClose() {
+      this.$emit('evaluation-work-close', this.work, this.task)
+    },
+    handleEvaluationWorkIndex() {
+      this.$emit('evaluation-work-index', this.work, this.task )
     },
     handleDeleteWork() {
       this.$emit('delete-work', this.work, this.task)

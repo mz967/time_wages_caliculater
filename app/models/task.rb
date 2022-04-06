@@ -7,4 +7,9 @@ class Task < ApplicationRecord
     self.total_time += work.work_time
     self.total_wage += work.work_wage
   end
+
+  def reset_total_data(work)
+    self.total_time -= work.work_time
+    self.total_wage -= work.work_wage
+  end
 end

@@ -1,5 +1,5 @@
 class Api::V1::TasksController < ApplicationController
-  before_action :set_task, only: %i[show update destroy]
+  before_action :set_task, only: %i[show update destroy reset]
 
   def index
     @tasks = Task.where(user_id: current_user.id)
@@ -30,6 +30,18 @@ class Api::V1::TasksController < ApplicationController
 
   def destroy
     @task.destroy!
+    render json: @task
+  end
+
+  def reset
+    @task.total_time = 0
+    @task.total_wage = 0
+    @task.save
+    @works = @task.works
+    # @works.each do |work|
+    #   work.destroy!
+    # end
+    @works.destroy_all!
     render json: @task
   end
 

@@ -1,5 +1,6 @@
 class Api::V1::WorksController < ApplicationController
   before_action :set_work, only: %i[update destroy]
+  before_action :task_find, only: %i[destroy index]
 
   def create
     ActiveRecord::Base.transaction do
@@ -27,34 +28,27 @@ class Api::V1::WorksController < ApplicationController
   end
 
   def destroy
+    @task.reset_total_data(@work)
+    @task.save
     @work.destroy!
-    render json: @work
+    render json: @task
   end
 
   def index
-    @task = Task.find_by(id: params[:task_id])
     @works = @task.works
-    # 日別のデータを送るための作業
-    @work_daily_wages = @works.work_date.sum(:work_wage)
-    @evaluated_daily_wages = @works.work_date.sum(:evaluation)
-    @work_days = @work_daily_wages.map { |key, _| key.strftime('%m/%d') }
-    @daily_wages = @work_daily_wages.map { |_, val| val }
-    @daily_evaluated_wages = @evaluated_daily_wages.map { |_, val| val }
-
-    # 月別のデータを送るための作業
-    @work_monthly_wages = @works.work_month.sum(:work_wage)
-    @evaluated_monthly_wages = @works.work_month.sum(:evaluation)
-    @work_months = @work_monthly_wages.map { |key, _| "#{key}月" }
-    @monthly_wages = @work_monthly_wages.map { |_, val| val }
-    @monthly_evaluated_wages = @evaluated_monthly_wages.map { |_, val| val }
-
+    # 日別のデータを送るための作業↓↓↓すべて1日ごとでまとめる
+    @work_days = @works.group('date(start_at)').sum(:start_at).map { |key, _| key }
+    @daily_wages = @works.group('date(start_at)').sum(:work_wage).map { |_, val| val }
+    @daily_evaluated_wages = @works.group('date(start_at)').sum(:evaluation).map { |_, val| val }
+    @daily_works = @work_days.zip(@daily_wages, @daily_evaluated_wages)
+    # 月別のデータを送るための作業↓↓↓すべて1月ごとでまとめる
+    @work_months = @works.group("DATE_FORMAT(start_at, '%Y-%m')").sum(:start_at).map { |key, _| key }
+    @monthly_wages = @works.group('month(start_at)').sum(:work_wage).map { |_, val| val }
+    @monthly_evaluated_wages = @works.group('month(start_at)').sum(:evaluation).map { |_, val| val }
+    @monthly_works = @work_months.zip(@monthly_wages, @monthly_evaluated_wages)
     render json: {
-      daily_wages: @daily_wages,
-      work_days: @work_days,
-      daily_evaluated_wages: @daily_evaluated_wages,
-      monthly_wages: @monthly_wages,
-      work_months: @work_months,
-      monthly_evaluated_wages: @monthly_evaluated_wages
+      daily_works: @daily_works,
+      monthly_works: @monthly_works
     }
   end
 
@@ -66,6 +60,10 @@ class Api::V1::WorksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def task_find
+    @task = Task.find_by(id: params[:task_id])
   end
 
   def work_params

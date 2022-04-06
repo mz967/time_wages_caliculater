@@ -3,13 +3,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :tasks do
-        resources :works, only: [:index, :create, :update, :destroy] do
-          # collection do
-          #   get 'daily_data'
-          #   get 'monthly_data'
-          # end
+        resources :works, only: [:index, :create, :update, :destroy]
+        member do
+          patch 'reset'
         end
-        
       end
       # resources :works
       resources :users do

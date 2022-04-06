@@ -37,11 +37,9 @@ class Api::V1::TasksController < ApplicationController
     @task.total_time = 0
     @task.total_wage = 0
     @task.save
-    @works = @task.works
-    # @works.each do |work|
-    #   work.destroy!
-    # end
-    @works.destroy_all!
+    @task.works.destroy_all
+    # @works = @task.works
+    # @works.destroy_all
     render json: @task
   end
 

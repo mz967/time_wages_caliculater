@@ -104,6 +104,9 @@ export default {
       var total_timeS = this.task.total_time % (24 * 60 * 60) % (60 * 60) % 60;
       return total_timeS
     },
+    // initialEvaluation(){
+    //   this.work.evaluation = 5;
+    // }
   },
 
   created() {

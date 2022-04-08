@@ -34,16 +34,6 @@
                 <p class="mb-6">
                   <span class="text-2xl text-red-500">{{ this_task_wage }}</span>円分の働きとなりました!
                 </p>
-                <!-- <p class="mb-3">
-                  これまでの累計時間は
-                  <span class="text-xl">{{ total_timeH }}</span>時間
-                  <span class="text-xl">{{ total_timeM }}</span>分
-                  <span class="text-xl">{{ total_timeS }}</span>秒
-                  となり
-                </p>
-                <p class="mb-10">
-                  累計の金額は<span class="text-2xl text-red-500">{{ task.total_wage }}</span>円となりました!
-                </p> -->
               </div>
               <h3
                 class="leading-6 mb-3"
@@ -58,15 +48,14 @@
                   id="range"
                   v-model="work.evaluation"
                   type="range"
-                  min="0"
+                  min="1"
                   max="10"
                   class="w-full"
                   step="1"
-                  value="5"
                   list="tickmarks"
+                  @change="onScole"
                 >
                 <datalist id="tickmarks">
-                  <option value="0" />
                   <option value="1" />
                   <option value="2" />
                   <option value="3" />
@@ -82,7 +71,15 @@
                   高
                 </p>
               </div>
-              <h1><span class="text-xl">{{ work.evaluation }}</span>点</h1>
+              <h1 v-if="scole===true">
+                <span class="text-xl">{{ work.evaluation }}</span>点
+              </h1> 
+              <h1
+                v-else
+                class="text-red-400 px-4 py-3 rounded relative"
+              >
+                点数を選択してください
+              </h1>
             </div>
           </div>
         </div>
@@ -97,14 +94,14 @@
           <button
             type="button"
             class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-xs"
-            @click="handleEvaluationWork"
+            @click="handleEvaluationWorkIndex"
           >
             評価してタスクを終了する
           </button>
           <button
             type="button"
             class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-green-400 via-green-500 to-green-400 text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-xs"
-            @click="handleCloseModal"
+            @click="handleEvaluationWorksClose"
           >
             評価してタスクをもう一度計測する
           </button>
@@ -158,8 +155,13 @@ export default {
 
   data() {
     return {
+      scole: []
     }
   },
+
+  // created(){
+  //   this.work.evaluation = 5;
+  // },
 
   computed: {
     this_task_wage(){
@@ -191,18 +193,25 @@ export default {
     total_timeS() {
       var total_timeS = this.task.total_time % (24 * 60 * 60) % (60 * 60) % 60;
       return total_timeS
-    }
+    },
   },
 
   methods: {
     handleCloseModal() {
       this.$emit('close-modal')
     },
-    handleEvaluationWork() {
-      this.$emit('evaluation-work', this.work, this.task )
+    handleEvaluationWorksClose() {
+      this.$emit('evaluation-work-close', this.work, this.task)
+    },
+    handleEvaluationWorkIndex() {
+      this.$emit('evaluation-work-index', this.work, this.task )
     },
     handleDeleteWork() {
       this.$emit('delete-work', this.work, this.task)
+    },
+
+    onScole(){
+      this.scole = true;
     }
   }
 }

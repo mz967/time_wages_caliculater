@@ -14,14 +14,12 @@ export default {
   data () {
     return {
       options: {
-        legend: {//凡例設定
-          display: false //表示設定
+        legend: {
+          display: false
         },
         scales: {
           xAxes: [{
             scaleLabel: {
-              // display: true,
-              // labelString: ''
             },
             barPercentage: 0.4
           }],
@@ -29,17 +27,19 @@ export default {
             ticks: {
               beginAtZero: true,
               stepSize: 10000,
+              callback: (value) => `${value}円`,
             }
           }],
-          // y: {
-          //     ticks: {
-          //         // Include a dollar sign in the ticks
-          //         callback: function(value, index, ticks) {
-          //             return '$' + value;
-          //         }
-          //     }
-          // }
-
+        },
+        tooltips: {
+          callbacks: {
+            title: (tooltipItem, data) => {
+              return tooltipItem[0].xLabel;
+            },
+            label: (tooltipItem, data) => {
+              return tooltipItem.yLabel + '円';
+            }
+          }
         }
       }
     }

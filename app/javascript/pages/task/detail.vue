@@ -52,6 +52,7 @@
         @close-task-edit-modal="CloseTaskEditModal"
         @update-task="handleUpdateTask"
         @delete-task="handleDeleteTask"
+        @reset-task="handleResetTask"
       />
     </transition>
     <transition name="fade">
@@ -60,8 +61,9 @@
         :work="work"
         :task="task"
         @close-modal="handlecloseTaskFinishModal"
-        @evaluation-work="handleEvaluateThisWork"
-        @delete-work="handleDeleteThisWork"
+        @evaluation-work-index="handleEvaluateWorkIndex"
+        @evaluation-work-close="handleEvaluateWorkClose"
+        @delete-work="handleDeleteWork"
       />
     </transition>
   </div>
@@ -102,6 +104,9 @@ export default {
       var total_timeS = this.task.total_time % (24 * 60 * 60) % (60 * 60) % 60;
       return total_timeS
     },
+    // initialEvaluation(){
+    //   this.work.evaluation = 5;
+    // }
   },
 
   created() {
@@ -134,7 +139,22 @@ export default {
         .then(res => this.data = res.data)
         this.CloseTaskEditModal();
         this.$store.commit(`message/setContent`,{
-          content: '処理を実行しました!',
+          content: 'タスク名を変更しました!',
+          timeout: 6000
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async handleResetTask(task) {
+      try {
+        await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}/reset`, task)
+        // .then(res => this.data = res.data)
+        this.CloseTaskEditModal();
+        this.$router.go({path: this.$router.currentRoute.path, force: true})
+        this.$store.commit(`message/setContent`,{
+          content: 'タスクの値をリセットしました!',
           timeout: 6000
         })
       } catch (error) {
@@ -171,9 +191,21 @@ export default {
       this.isVisibleTaskFinishModal = false;
     },
 
+    async handleEvaluateWorkIndex(work, task) {
+      try {
+        await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`, {work, task})
+        .then(res => this.data = res.data)
+        this.$router.push('/tasks')
+        this.$store.commit(`message/setContent`,{
+          content: `評価${work.evaluation}点にて今回のタスクを登録しました!`,
+          timeout: 6000
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
-
-    async handleEvaluateThisWork(work, task) {
+    async handleEvaluateWorkClose(work, task) {
       try {
         await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`, {work, task})
         .then(res => this.data = res.data)
@@ -187,10 +219,11 @@ export default {
       }
     },
 
-    async handleDeleteThisWork(work, task) {
+    async handleDeleteWork(work, task) {
       try {
         await this.$axios.delete( `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`, {work, task})
         this.isVisibleTaskFinishModal = false;
+        this.$router.go({path: this.$router.currentRoute.path, force: true})
         this.$store.commit(`message/setContent`,{
           content: '今回のタスクを無しにしました!',
           timeout: 6000

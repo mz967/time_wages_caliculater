@@ -76,7 +76,7 @@
       <!-- 月別グラフ(現在は2022年のみ) -->
       <div v-if="selectedDating===2">
         <h1 class="text-center  mb-10 text-gray-700">
-          2022年
+          2022
         </h1>
         <h1
           v-if="work_months.length===0"
@@ -189,7 +189,7 @@ export default {
       var end = moment().startOf('month');
       var diffmonthes = end.diff(start, 'months');
       for(; i <= diffmonthes; i++) {
-        arr.push(start.clone().add(i, 'months').startOf('month').format('YYYY-MM'));
+        arr.push(start.clone().add(i, 'months').startOf('month').format('YYYY/M'));
       }
       this.recent_months = arr.reverse();
     },
@@ -210,30 +210,30 @@ export default {
               `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[4]/10/this.daily_wages[4]*100))/100 } )`,
               `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[5]/10/this.daily_wages[5]*100))/100 } )`,
               `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[6]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[7]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[8]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[9]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[10]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[11]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[12]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[13]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[14]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[15]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[16]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[17]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[18]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[19]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[20]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[21]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[22]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[23]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[24]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[25]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[26]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[27]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[28]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[29]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[6]/10/this.daily_wages[30]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[7]/10/this.daily_wages[7]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[8]/10/this.daily_wages[8]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[9]/10/this.daily_wages[9]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[10]/10/this.daily_wages[10]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[11]/10/this.daily_wages[11]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[12]/10/this.daily_wages[12]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[13]/10/this.daily_wages[13]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[14]/10/this.daily_wages[14]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[15]/10/this.daily_wages[15]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[16]/10/this.daily_wages[16]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[17]/10/this.daily_wages[17]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[18]/10/this.daily_wages[18]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[19]/10/this.daily_wages[19]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[20]/10/this.daily_wages[20]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[21]/10/this.daily_wages[21]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[22]/10/this.daily_wages[22]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[23]/10/this.daily_wages[23]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[24]/10/this.daily_wages[24]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[25]/10/this.daily_wages[25]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[26]/10/this.daily_wages[26]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[27]/10/this.daily_wages[27]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[28]/10/this.daily_wages[28]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[29]/10/this.daily_wages[29]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.daily_evaluated_wages[30]/10/this.daily_wages[30]*100))/100 } )`,
             ]
           },
         ]
@@ -245,8 +245,8 @@ export default {
       this.daily_wages = [];
       this.work_days = [];
       this.daily_evaluated_wages = [];
-      var fromDate = moment(this.selected_month).startOf('month').local().format();
-      var endDate = moment(this.selected_month).endOf('month').local().format();
+      var fromDate = moment(this.selected_month).startOf('month').toISOString();
+      var endDate = moment(this.selected_month).endOf('month').toISOString();
       var daily_works = this.daily_works.filter(function(item, index){
         if ( item[0] <= endDate && item[0] >= fromDate ) return true;
       });
@@ -272,12 +272,12 @@ export default {
               `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[3]/10/this.monthly_wages[3]*100))/100 } )`,
               `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[4]/10/this.monthly_wages[4]*100))/100 } )`,
               `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[5]/10/this.monthly_wages[5]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[5]/10/this.monthly_wages[6]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[5]/10/this.monthly_wages[7]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[5]/10/this.monthly_wages[8]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[5]/10/this.monthly_wages[9]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[5]/10/this.monthly_wages[10]*100))/100 } )`,
-              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[5]/10/this.monthly_wages[11]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[6]/10/this.monthly_wages[6]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[7]/10/this.monthly_wages[7]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[8]/10/this.monthly_wages[8]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[9]/10/this.monthly_wages[9]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[10]/10/this.monthly_wages[10]*100))/100 } )`,
+              `rgba(0,0,225,${ (Math.floor(this.monthly_evaluated_wages[11]/10/this.monthly_wages[11]*100))/100 } )`,
             ]
           },
         ]
@@ -291,10 +291,10 @@ export default {
       this.monthly_wages = [];
       this.work_months = [];
       this.monthly_evaluated_wages = [];
-      var fromMonth = moment().startOf('year').local().format();
-      var endMonth = moment().endOf('year').local().format();
+      var fromMonth = moment().startOf('year').toISOString();
+      var endMonth = moment().endOf('year').toISOString();
       var monthly_works = this.monthly_works.filter(function(item, index){
-        if ( item[0] <= endMonth && item[0] >= fromMonth ) return true;
+        if ( item[0] <= endMonth && item[0] >= fromMonth) return true;
       });
       for( var i = 0; i < monthly_works.length; i++ ){
         this.work_months.push(`${Number(monthly_works[i][0].slice(-2))}月`);

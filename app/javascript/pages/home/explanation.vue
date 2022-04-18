@@ -149,7 +149,9 @@
       <h2 class="mb-12">
         「時給賃金換算機」では従来の時給計算の不便さを解消する多くのメリットがあります！
       </h2>
-      <h2 class="text-center font-semibold mb-2">MERIT-1</h2>
+      <h2 class="text-center font-semibold mb-2">
+        MERIT-1
+      </h2>
       <p class="mb-6">
         ユーザー登録とタスク登録をするだけで以後はタイマーで時間を計測するだけ！
       </p>
@@ -158,7 +160,9 @@
         alt=""
         class="w-96 h-96 mb-10 mx-auto"
       >
-      <h2 class="text-center font-semibold mb-2">MERIT-2</h2>
+      <h2 class="text-center font-semibold mb-2">
+        MERIT-2
+      </h2>
       <a class="mb-6">
         タスクに集中できたかをわかりやすく点数で評価することで、長期間のタスクでの作業能率を明確に理解できる！
       </a>
@@ -167,7 +171,9 @@
         alt=""
         class="w-96 h-96 mb-10 mx-auto"
       >
-      <h2 class="text-center font-semibold mb-2">MERIT-3</h2>
+      <h2 class="text-center font-semibold mb-2">
+        MERIT-3
+      </h2>
       <a class="mb-6">
         タスク一覧画面に取り組んだタスクをすべて表示されているため同時並行で取り組んでいるタスクの管理が簡単にできる！
       </a>
@@ -181,7 +187,10 @@
     <!-- リンク -->
     <div class="justify-center xl:text-xl text-3xl">
       <div class="xl:flex xl:flex-wrap mb-32 text-center">
-        <div v-if="!authUser" class="p-4 h-64 w-96 mx-auto mb-10">
+        <div
+          v-if="!authUser"
+          class="p-4 h-64 w-96 mx-auto mb-10"
+        >
           <router-link :to="{ name: 'RegisterNew' }">
             <div class="h-full w-full  px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2 ">
               <h1 class="font-bold mb-6">

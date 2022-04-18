@@ -1,5 +1,4 @@
 <template>
- 
   <div>
     <div class="flex flex-wrap justify-center mb-32">
       <!-- 取組中のタスクブロック -->
@@ -74,7 +73,6 @@
       />
     </transition>
   </div>
-
 </template>
 
 <script>

@@ -4,8 +4,12 @@
       ◎平均時給を参照
     </h1>
     <h2 class="mb-4">
-     <span>
-        <a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2020/dl/13.pdf" target="_blank" class="underline">
+      <span>
+        <a
+          href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/z2020/dl/13.pdf"
+          target="_blank"
+          class="underline"
+        >
           令和2年賃金構造基本統計調査(厚生労働省)
         </a>
       </span>
@@ -27,7 +31,9 @@
     <br>
     <ValidationObserver v-slot="{ handleSubmit }">
       <div class="mb-4">
-        <h2 class="mb-2">あなたの性別を選択してください</h2>
+        <h2 class="mb-2">
+          あなたの性別を選択してください
+        </h2>
         <ValidationProvider
           v-slot="{ errors }"
           rules="required"
@@ -35,19 +41,19 @@
         >
           <label>
             <input
-            v-model="selectedSex"
-            type="radio"
-            value="1"
-            @change="averageWageCaliculate"
+              v-model="selectedSex"
+              type="radio"
+              value="1"
+              @change="averageWageCaliculate"
             >
             男性
           </label>
           <label>
             <input
-            v-model="selectedSex"
-            type="radio"
-            value="2"
-            @change="averageWageCaliculate"
+              v-model="selectedSex"
+              type="radio"
+              value="2"
+              @change="averageWageCaliculate"
             >
             女性
           </label>
@@ -61,7 +67,9 @@
           rules="required"
           name="年齢"
         >
-          <h2 class="mb-2">あなたの現在の年齢をお教えください</h2>
+          <h2 class="mb-2">
+            あなたの現在の年齢をお教えください
+          </h2>
           <select
             v-model="selectedAge"
             class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none shadow text-gray-700"

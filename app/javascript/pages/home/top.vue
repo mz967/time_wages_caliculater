@@ -10,9 +10,9 @@
             <!-- 最初のタイトル画面 -->
             <div v-if="introduction_start">
               <img
-              src="../../images/TimeWagesCalculator.jpg"
-              alt=""
-              class="h-full w-full mx-auto"
+                src="../../images/TimeWagesCalculator.jpg"
+                alt=""
+                class="h-full w-full mx-auto"
               >
             </div>
 

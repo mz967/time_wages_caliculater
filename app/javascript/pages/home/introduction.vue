@@ -4,8 +4,12 @@
       <div class="mb-16">
         <div class="xl:text-xl text-3xl">
           <div class="mb-10 text-left xl:text-center">
-            <h1 class="mb-20 xl:text-2xl text-6xl font-bold text-center">アプリの使い方</h1>
-            <h2 class="text-center font-semibold mb-2">STEP-1</h2>
+            <h1 class="mb-20 xl:text-2xl text-6xl font-bold text-center">
+              アプリの使い方
+            </h1>
+            <h2 class="text-center font-semibold mb-2">
+              STEP-1
+            </h2>
             <p class="mb-4">
               ユーザー登録にて現在の時給を登録しましょう。
             </p>
@@ -14,7 +18,9 @@
               alt=""
               class="w-full h-full mb-10"
             >
-            <h2 class="text-center font-semibold mb-2">STEP-2</h2>
+            <h2 class="text-center font-semibold mb-2">
+              STEP-2
+            </h2>
             <p class="mb-4">
               ログインをして取り組むタスクを登録しましょう。
             </p>
@@ -23,7 +29,9 @@
               alt=""
               class="w-full h-full mb-10"
             >
-            <h2 class="text-center font-semibold mb-2">STEP-3</h2>
+            <h2 class="text-center font-semibold mb-2">
+              STEP-3
+            </h2>
             <p class="mb-4">
               タスクの詳細画面のストップウォッチで取組時間を計測してみましょう。
             </p>
@@ -32,7 +40,9 @@
               alt=""
               class="w-full h-full mb-10"
             >
-            <h2 class="text-center font-semibold mb-2">STEP-4</h2>
+            <h2 class="text-center font-semibold mb-2">
+              STEP-4
+            </h2>
             <p class="mb-4">
               これまでに取り組んだタスクの取組状況はグラフで確認できます。
             </p>
@@ -41,7 +51,9 @@
               alt=""
               class="w-full h-full mb-10"
             >
-            <h2 class="text-center font-semibold mb-2">STEP-5</h2>
+            <h2 class="text-center font-semibold mb-2">
+              STEP-5
+            </h2>
             <p class="mb-4">
               タスク一覧画面ではどのタスクにどのくらいの労力を費やしたか相対的に確認できます。
             </p>
@@ -58,7 +70,10 @@
     <!-- リンク -->
     <div class="justify-center xl:text-xl text-3xl">
       <div class="xl:flex xl:flex-wrap mb-32 text-center">
-        <div v-if="!authUser" class="p-4 h-64 w-96 mx-auto mb-10">
+        <div
+          v-if="!authUser"
+          class="p-4 h-64 w-96 mx-auto mb-10"
+        >
           <router-link :to="{ name: 'RegisterNew' }">
             <div class="h-full w-full  px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2 ">
               <h1 class="font-bold mb-6">

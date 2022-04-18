@@ -2,8 +2,8 @@
   <div class="container px-5 py-24 mx-auto">
     <!-- 仕事での使用法 -->
     <div
-    class="flex items-center w-4/5 mx-auto sm:flex-row flex-col bg-blue-200"
-    @click="openWorkDetail()"
+      class="flex items-center w-4/5 mx-auto sm:flex-row flex-col bg-blue-200"
+      @click="openWorkDetail()"
     >
       <img
         src="../../images/Business.jpg"
@@ -14,12 +14,20 @@
         <h1 class="mb-2 font-bold xl:text-4xl text-6xl">
           仕事で使う
         </h1>
-        <h2 v-if="workDetail===false" class="xl:pb-0 pb-10">Click here!</h2>
+        <h2
+          v-if="workDetail===false"
+          class="xl:pb-0 pb-10"
+        >
+          Click here!
+        </h2>
       </div>
     </div>
     <!-- クリックしたら表示↓ -->
     <transition name="work">
-      <div v-if="workDetail===true" class="items-center w-4/5 mx-auto bg-blue-200 text-center xl:text-xl text-2xl py-20 xl:py-0">
+      <div
+        v-if="workDetail===true"
+        class="items-center w-4/5 mx-auto bg-blue-200 text-center xl:text-xl text-2xl py-20 xl:py-0"
+      >
         <div class="py-10">
           <h1 class="xl:text-2xl text-3xl mb-10 font-semibold">
             仕事で行うタスクを登録してみましょう！
@@ -79,8 +87,8 @@
 
     <!-- 余暇時間での使用法 -->
     <div
-    class="flex lg:flex-row-reverse items-center w-4/5 mx-auto sm:flex-row flex-col bg-green-200 mt-20"
-    @click="openWasteDetail()"
+      class="flex lg:flex-row-reverse items-center w-4/5 mx-auto sm:flex-row flex-col bg-green-200 mt-20"
+      @click="openWasteDetail()"
     >
       <img
         src="../../images/Studying.jpg"
@@ -91,12 +99,20 @@
         <h1 class="mb-2 font-bold xl:text-4xl text-6xl">
           余暇時間の無駄を無くす
         </h1>
-        <h2 v-if="wasteDetail===false" class="xl:pb-0 pb-10">Click here!</h2>
+        <h2
+          v-if="wasteDetail===false"
+          class="xl:pb-0 pb-10"
+        >
+          Click here!
+        </h2>
       </div>
     </div>
     <!-- クリックしたら表示↓ -->
     <transition name="waste">
-      <div v-if="wasteDetail===true" class="items-center w-4/5 mx-auto bg-green-200 text-center xl:text-xl text-2xl py-20 xl:py-0">
+      <div
+        v-if="wasteDetail===true"
+        class="items-center w-4/5 mx-auto bg-green-200 text-center xl:text-xl text-2xl py-20 xl:py-0"
+      >
         <div class="py-10">
           <h1 class="xl:text-2xl text-3xl mb-10 font-semibold">
             自己啓発の励みにつながります！
@@ -147,8 +163,8 @@
 
     <!-- 価格比較での使用法 -->
     <div
-    class="flex items-center w-4/5 mx-auto sm:flex-row flex-col bg-yellow-200 mt-20"
-    @click="openValueDetail()"
+      class="flex items-center w-4/5 mx-auto sm:flex-row flex-col bg-yellow-200 mt-20"
+      @click="openValueDetail()"
     >
       <img
         src="../../images/Housework.jpg"
@@ -159,12 +175,20 @@
         <h1 class="mb-2 font-bold xl:text-4xl text-6xl">
           価値の比較をする
         </h1>
-        <h2 v-if="valueDetail===false" class="xl:pb-0 pb-10">Click here!</h2>
+        <h2
+          v-if="valueDetail===false"
+          class="xl:pb-0 pb-10"
+        >
+          Click here!
+        </h2>
       </div>
     </div>
     <!-- クリックしたら表示↓ -->
     <transition name="value">
-      <div v-if="valueDetail===true" class="items-center w-4/5 mx-auto bg-yellow-200 text-center xl:text-xl text-2xl py-20 xl:py-0">
+      <div
+        v-if="valueDetail===true"
+        class="items-center w-4/5 mx-auto bg-yellow-200 text-center xl:text-xl text-2xl py-20 xl:py-0"
+      >
         <div class="py-10">
           <h1 class="xl:text-2xl text-3xl mb-10 font-semibold">
             アウトソーシングを考える基準にしてみましょう！
@@ -214,14 +238,19 @@
     </transition>
 
     <div class="items-center w-4/5 mx-auto text-4xl text-center my-20">
-      <h1 class="mb-10">時間の使い方はあなた次第！</h1>
+      <h1 class="mb-10">
+        時間の使い方はあなた次第！
+      </h1>
       <h1>あなたなりの時給換算を考えてみましょう！</h1>
     </div>
 
     <!-- リンク -->
     <div class="justify-center xl:text-xl text-3xl w-4/5 mx-auto">
       <div class="xl:flex xl:flex-wrap mb-32 text-center">
-        <div v-if="!authUser" class="p-4 h-64 w-96 mx-auto mb-10">
+        <div
+          v-if="!authUser"
+          class="p-4 h-64 w-96 mx-auto mb-10"
+        >
           <router-link :to="{ name: 'RegisterNew' }">
             <div class="h-full w-full  px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2 ">
               <h1 class="font-bold mb-6">
@@ -269,7 +298,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>

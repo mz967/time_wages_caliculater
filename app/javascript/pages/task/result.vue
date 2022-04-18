@@ -5,7 +5,9 @@
       <span>{{ task.title }}</span>の推移表
     </h1>
     <div class="text-center">
-      <h2 class="mb-4 xl:text-base text-3xl">期間を選択してください</h2>
+      <h2 class="mb-4 xl:text-base text-3xl">
+        期間を選択してください
+      </h2>
       <select
         id="dating"
         v-model="selectedDating"

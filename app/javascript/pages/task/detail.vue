@@ -1,72 +1,75 @@
 <template>
-  <div class="w-full mb-20">
-    <h1 class="text-center mb-10 font-bold text-2xl">
-      {{ task.title }}
-    </h1>
-    <StopWatchFunction
-      :task="task"
-      @create-work="handleCreateWork"
-    />
-    <div class="text-center mb-20">
-      <h2 class="mt-10 text-xl">
-        これまでの合計時間
-        <span class="text-5xl">{{ total_timeH }}</span>時間
-        <span class="text-5xl">{{ total_timeM }}</span>分
-        <span class="text-5xl">{{ total_timeS }}</span>秒
-      </h2>
-      <h2 class="mt-10 text-xl">
-        これまでの合計金額
-        <span class="text-5xl">{{ task.total_wage }}</span>
-        円
-      </h2>
-    </div>
-    <div class="text-center underline">
-      <div class="mb-6">
-        <router-link
-          :to="{name: 'TaskResult', params: {id: task.id}}"
-          class="hover:text-blue-500"
-        >
-          タスクの取組状況
-        </router-link>
-      </div>
-      <h1
-        class="hover:text-blue-500 mb-6"
-        @click="handleShowTaskEditModal"
-      >
-        タスクを編集する
+  <transition name="pagefade">
+    <div class="w-full mb-20">
+      <h1 class="text-center mb-10 font-bold xl:text-2xl text-6xl">
+        {{ task.title }}
       </h1>
-      <div class="mb-6">
-        <router-link
-          :to="{ name: 'TaskIndex' }"
-          class="hover:text-blue-500"
-        >
-          一覧へ戻る
-        </router-link>
-      </div>
-    </div>
-
-    <transition name="fade">
-      <TaskEditModal
-        v-if="isVisibleTaskEditModal"
-        :task="taskEdit"
-        @close-task-edit-modal="CloseTaskEditModal"
-        @update-task="handleUpdateTask"
-        @delete-task="handleDeleteTask"
-        @reset-task="handleResetTask"
-      />
-    </transition>
-    <transition name="fade">
-      <TaskFinishModal
-        v-if="isVisibleTaskFinishModal"
-        :work="work"
+      <StopWatchFunction
         :task="task"
-        @close-modal="handlecloseTaskFinishModal"
-        @evaluation-work-index="handleEvaluateWorkIndex"
-        @evaluation-work-close="handleEvaluateWorkClose"
-        @delete-work="handleDeleteWork"
+        @create-work="handleCreateWork"
       />
-    </transition>
-  </div>
+      <div class="text-center mb-20 pt-10 xl:pt-0">
+        <h2 class="mt-10 xl:text-xl text-4xl">
+          これまでの合計時間
+          <span class="xl:text-5xl text-6xl">{{ total_timeH }}</span>時間
+          <span class="xl:text-5xl text-6xl">{{ total_timeM }}</span>分
+          <span class="xl:text-5xl text-6xl">{{ total_timeS }}</span>秒
+        </h2>
+        <h2 class="mt-10 xl:text-xl text-4xl">
+          これまでの合計金額
+          <span class="xl:text-5xl text-6xl">{{ task.total_wage.toLocaleString() }}</span>
+          円
+        </h2>
+      </div>
+      <div class="text-center underline  xl:text-base text-3xl pt-10 xl:pt-0">
+        <div class="mb-6">
+          <router-link
+            :to="{name: 'TaskResult', params: {id: task.id}}"
+            class="hover:text-blue-500"
+          >
+            タスクの取組状況
+          </router-link>
+        </div>
+        <h1
+          class="hover:text-blue-500 mb-6"
+          @click="handleShowTaskEditModal"
+        >
+          タスクを編集する
+        </h1>
+        <div class="mb-6">
+          <router-link
+            :to="{ name: 'TaskIndex' }"
+            class="hover:text-blue-500"
+          >
+            一覧へ戻る
+          </router-link>
+        </div>
+      </div>
+
+      <transition name="fade">
+        <TaskEditModal
+          v-if="isVisibleTaskEditModal"
+          :task="taskEdit"
+          @close-task-edit-modal="CloseTaskEditModal"
+          @update-task="handleUpdateTask"
+          @delete-task="handleDeleteTask"
+          @reset-task="handleResetTask"
+        />
+      </transition>
+
+      <transition name="fade">
+        <TaskFinishModal
+          v-if="isVisibleTaskFinishModal"
+          :work="work"
+          :task="task"
+          @close-modal="handlecloseTaskFinishModal"
+          @evaluation-work-index="handleEvaluateWorkIndex"
+          @evaluation-work-close="handleEvaluateWorkClose"
+          @delete-work="handleDeleteWork"
+        />
+      </transition>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -235,3 +238,20 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* フェード */
+.fade-enter-active, .fade-leave-active{
+  transition: opacity 0.5s
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
+
+.pagefade-enter-active{
+  transition: opacity 1s
+}
+.pagefade-enter{
+  opacity: 0;
+}
+</style>

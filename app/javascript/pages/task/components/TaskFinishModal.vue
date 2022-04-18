@@ -1,109 +1,101 @@
 <template>
   <div
     class="fixed z-10 inset-0 overflow-y-auto"
-    aria-labelledby="modal-title"
-    role="dialog"
-    aria-modal="true"
   >
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div
         class="fixed inset-0 bg-blue-200 bg-opacity-75 transition-opacity"
-        aria-hidden="true"
       />
-      <span
-        class="hidden sm:inline-block sm:align-middle sm:h-screen"
-        aria-hidden="true"
-      >&#8203;</span>
       <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="sm:flex sm:items-start">
-            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-              <h3
-                id="modal-title"
-                class="text-lg leading-6 font-bold mb-6"
+        <div class="bg-white p-10">
+          <div class="mt-3 text-left">
+            <h3
+              id="modal-title"
+              class="leading-6 font-bold xl:text-2xl text-6xl xl:mb-10 mb-20 xl:mt-0 mt-10"
+            >
+              お疲れさまでした!!
+            </h3>
+            <div class="xl:text-base text-4xl">
+              <p class="mb-3">
+                今回は
+                <span class="xl:text-xl text-5xl">{{ work_timeH }}</span>時間
+                <span class="xl:text-xl text-5xl">{{ work_timeM }}</span>分
+                <span class="xl:text-xl text-5xl">{{ work_timeS }}</span>秒で
+              </p>
+              <p class="mb-6">
+                <span class="xl:text-2xl text-6xl text-red-500">{{ this_task_wage }}</span>円分の働きとなりました!
+              </p>
+            </div>
+            <h3
+              class="leading-6 mb-3 mt-20 xl:text-base text-4xl"
+            >
+              今回のタスクの取り組みを評価してみましょう!
+            </h3>
+            <div class="flex mb-3 xl:text-base text-xl font-bold">
+              <p class="m-2">
+                低
+              </p>
+              <input
+                id="range"
+                v-model="work.evaluation"
+                type="range"
+                min="1"
+                max="10"
+                class="w-full"
+                step="1"
+                list="tickmarks"
+                @change="onScole"
               >
-                お疲れさまでした!!
-              </h3>
-              <div class="">
-                <p class="mb-3">
-                  今回は
-                  <span class="text-xl">{{ work_timeH }}</span>時間
-                  <span class="text-xl">{{ work_timeM }}</span>分
-                  <span class="text-xl">{{ work_timeS }}</span>秒で
-                </p>
-                <p class="mb-6">
-                  <span class="text-2xl text-red-500">{{ this_task_wage }}</span>円分の働きとなりました!
-                </p>
-              </div>
-              <h3
-                class="leading-6 mb-3"
-              >
-                今回のタスクの取り組みを評価してみましょう!
-              </h3>
-              <div class="flex mb-3">
-                <p class="m-2">
-                  低
-                </p>
-                <input
-                  id="range"
-                  v-model="work.evaluation"
-                  type="range"
-                  min="1"
-                  max="10"
-                  class="w-full"
-                  step="1"
-                  list="tickmarks"
-                  @change="onScole"
-                >
-                <datalist id="tickmarks">
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                  <option value="4" />
-                  <option value="5" />
-                  <option value="6" />
-                  <option value="7" />
-                  <option value="8" />
-                  <option value="9" />
-                  <option value="10" />
-                </datalist>
-                <p class="m-2">
-                  高
-                </p>
-              </div>
+              <datalist id="tickmarks">
+                <option value="1" />
+                <option value="2" />
+                <option value="3" />
+                <option value="4" />
+                <option value="5" />
+                <option value="6" />
+                <option value="7" />
+                <option value="8" />
+                <option value="9" />
+                <option value="10" />
+              </datalist>
+              <p class="m-2">
+                高
+              </p>
+            </div>
+            <div class="text-center xl:mb-0 mb-20">
               <h1 v-if="scole===true">
-                <span class="text-xl">{{ work.evaluation }}</span>点
+                <span class="xl:text-xl text-5xl">{{ work.evaluation }}</span>点
               </h1> 
               <h1
                 v-else
-                class="text-red-400 px-4 py-3 rounded relative"
+                class="text-red-400 px-4 py-3 rounded relative xl:text-base text-3xl"
               >
                 点数を選択してください
               </h1>
             </div>
           </div>
         </div>
-        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <div class="px-4 py-3 text-center">
           <button
             type="button"
-            class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-xs"
-            @click="handleDeleteWork"
+            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-green-400 via-green-500 to-green-400 text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mb-4"
+            @click="handleEvaluationWorksClose"
           >
-            今回は登録しない
+            評価してタスクをもう一度計測する
           </button>
           <button
             type="button"
-            class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-xs"
+            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mb-4"
             @click="handleEvaluationWorkIndex"
           >
             評価してタスクを終了する
           </button>
           <button
             type="button"
-            class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-green-400 via-green-500 to-green-400 text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-xs"
-            @click="handleEvaluationWorksClose"
+            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 mb-6"
+            @click="handleDeleteWork"
           >
-            評価してタスクをもう一度計測する
+            今回は登録しない
           </button>
         </div>
       </div>

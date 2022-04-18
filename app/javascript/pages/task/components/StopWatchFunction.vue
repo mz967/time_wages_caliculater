@@ -1,19 +1,21 @@
 <template>
-  <div class="text-center bg-gradient-to-b hover:bg-gradient-to-t from-black to-blue-900 shadow h-96 w-full mx-auto border-8 border-gray-500 rounded-sm	 ">
+  <div class="text-center bg-gradient-to-b hover:bg-gradient-to-t from-black to-blue-900 shadow h-96 w-4/5 mx-auto border-8 border-gray-500 rounded-sm	 xl:mb-0 mb-32">
     <div class="pt-32">
-      <p class="xl:text-8xl md:text-5xl sm:text-3xl mb-10 clock tracking-widest h-full w-full">
+      <p class="text-8xl xl:mb-10 mb-36 clock tracking-widest h-full w-full">
         <span class="">{{ timerH }}</span> : <span class="">{{ timerM }}</span> : <span class="">{{ timerS }}</span>
       </p>
+    </div>
+    <div>
       <a
         v-show="watch"
-        class="inline-flex items-center border-0 py-1 px-3 focus:outline-none text-white text-xl hover:bg-blue-500 rounded mt-4 my-40 font-bold"
+        class="items-center border-0 py-1 px-3 focus:outline-none text-white xl:text-2xl text-6xl rounded mt-4 my-40 font-bold  bg-gradient-to-b hover:bg-gradient-to-t from-gray-400 via-gray-500 to-gray-400"
         @click="handleStart()"
       >
         START
       </a>
       <a
         v-show="!watch"
-        class="inline-flex items-center border-0 py-1 px-3 focus:outline-none text-white text-xl hover:bg-blue-500 rounded  mt-4 my-40 font-bold"
+        class="items-center border-0 py-1 px-3 focus:outline-none text-white xl:text-2xl text-6xl rounded mt-4 my-40 font-bold  bg-gradient-to-b hover:bg-gradient-to-t from-gray-400 via-gray-500 to-gray-400"
         @click="handleEnd()"
       >
         STOP

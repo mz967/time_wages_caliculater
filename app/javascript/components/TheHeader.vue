@@ -1,23 +1,29 @@
 <template>
-  <header class="text-white bg-gradient-to-b hover:bg-gradient-to-t from-blue-700 to-blue-400">
-    <div class="container mx-auto flex flex-wrap p-10 flex-col md:flex-row">
+  <header class="text-white bg-gradient-to-b hover:bg-gradient-to-t from-blue-700 to-blue-400 text-center">
+    <div class="container mx-auto xl:flex xl:flex-wrap p-10">
       <router-link
         :to="{ name: 'HomeTop' }"
-        class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
+        class="title-font font-medium items-center text-white xl:ml-3 mx-auto text-5xl "
       >
-        <span class="ml-3 text-3xl text-gray-100 font-mono hover:text-blue-200">時間賃金換算機</span>
+        <span class="text-gray-100 font-mono hover:text-blue-200">時間賃金換算機</span>
       </router-link>
-      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 	flex flex-wrap items-center text-base justify-center">
+      <nav class="text-4xl flex flex-wrap items-center justify-center xl:ml-auto xl:mr-5 xl:text-lg mx-auto mt-5 xl:mt-0">
         <template v-if="!authUser">
           <router-link
+            :to="{ name: 'HomeTop' }"
+            class="mr-8 hover:text-blue-200"
+          >
+            使用方法
+          </router-link>
+          <router-link
             :to="{ name: 'Login' }"
-            class="mr-5 hover:text-blue-200"
+            class="mr-8 hover:text-blue-200"
           >
             ログイン
           </router-link>
           <router-link
             :to="{ name: 'RegisterNew' }"
-            class="mr-5 hover:text-blue-200"
+            class="xl:mr-8 hover:text-blue-200"
           >
             新規登録
           </router-link>
@@ -25,34 +31,31 @@
         <template v-else>
           <router-link
             :to="{ name: 'HomeTop' }"
-            class="mr-5 hover:text-blue-200"
+            class="mr-8 hover:text-blue-200"
           >
             使用方法
           </router-link>
           <router-link
             :to="{ name: 'TaskIndex' }"
-            class="mr-5 hover:text-blue-200"
+            class="mr-8 hover:text-blue-200"
           >
             タスク一覧
           </router-link>
           <router-link
             :to="{ name: 'RegisterWage' }"
-            class="mr-5 hover:text-blue-200"
+            class="mr-8 hover:text-blue-200"
           >
             時給変更
           </router-link>
           <router-link
             to="#"
-            class="mr-5 hover:text-blue-200"
+            class="xl:mr-8 hover:text-blue-200"
             @click.native="handleLogout"
           >
             ログアウト
           </router-link>
         </template>
       </nav>
-      <!-- <button class="inline-flex items-center bg-gray-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0">
-        ここにスライダー
-      </button> -->
     </div>
   </header>
 </template>

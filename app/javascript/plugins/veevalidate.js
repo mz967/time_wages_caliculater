@@ -32,6 +32,14 @@ extend('numeric', {
   message: '{_field_}は整数以外は登録できません(小数・マイナスは不可)。'
 });
 
+// extend('sex', {
+//   message: '性別を選択してください。'
+// });
+
+// extend('age', {
+//   message: '年齢を選択してください。'
+// });
+
 // extend('integer', {
 //   ...integer,
 //   message: '{_field_}は整数以外は登録できません(テキスト・小数・マイナスは不可)。'

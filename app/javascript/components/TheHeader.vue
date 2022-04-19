@@ -1,13 +1,13 @@
 <template>
   <header class="text-white bg-gradient-to-b hover:bg-gradient-to-t from-blue-700 to-blue-400 text-center">
-    <div class="container mx-auto xl:flex xl:flex-wrap p-10">
+    <div class="mx-auto md:flex  p-10">
       <router-link
         :to="{ name: 'HomeTop' }"
-        class="title-font font-medium items-center text-white xl:ml-3 mx-auto text-5xl "
+        class="title-font font-medium items-center text-white md:ml-3 mx-auto text-5xl"
       >
         <span class="text-gray-100 font-mono hover:text-blue-200">時間賃金換算機</span>
       </router-link>
-      <nav class="text-4xl flex flex-wrap items-center justify-center xl:ml-auto xl:mr-5 xl:text-lg mx-auto mt-5 xl:mt-0">
+      <nav class="text-4xl flex flex-wrap items-center justify-center md:ml-auto md:mr-5 md:text-lg mx-auto mt-5 md:mt-0">
         <template v-if="!authUser">
           <router-link
             :to="{ name: 'HomeTop' }"
@@ -23,7 +23,7 @@
           </router-link>
           <router-link
             :to="{ name: 'RegisterNew' }"
-            class="xl:mr-8 hover:text-blue-200"
+            class="md:mr-8 hover:text-blue-200"
           >
             新規登録
           </router-link>
@@ -49,7 +49,7 @@
           </router-link>
           <router-link
             to="#"
-            class="xl:mr-8 hover:text-blue-200"
+            class="md:mr-8 hover:text-blue-200"
             @click.native="handleLogout"
           >
             ログアウト
@@ -85,7 +85,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

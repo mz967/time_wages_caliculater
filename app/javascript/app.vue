@@ -4,7 +4,7 @@
     class="text-shadow  content-center text-blue-700 xl:text-base text-2xl"
   >
     <TheHeader />
-    <main class="container mx-auto px-5 flex flex-col min-h-screen">
+    <main class="mx-auto px-5 flex flex-col min-h-screen">
       <div class="w-full h-24">
         <Message class="ml-20" />
       </div>

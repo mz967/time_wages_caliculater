@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-white bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 to-blue-700 text-4xl xl:text-lg">
+  <footer class="text-white bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 to-blue-700 text-4xl md:text-lg">
     <div class="container mx-auto py-10">
       <nav class="flex flex-wrap justify-center">
         <a class="mr-8 hover:text-blue-200">利用規約</a>

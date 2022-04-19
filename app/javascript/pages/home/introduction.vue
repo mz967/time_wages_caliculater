@@ -1,16 +1,16 @@
 <template>
   <div class="mx-auto container px-8 py-20 text-center w-4/5">
-    <div class="mb-20 xl:text-xl text-3xl">
+    <div class="mb-20 md:text-xl text-3xl">
       <div class="mb-16">
-        <div class="xl:text-xl text-3xl">
+        <div class="md:text-xl text-3xl">
           <div class="mb-10 text-left xl:text-center">
-            <h1 class="mb-20 xl:text-2xl text-6xl font-bold text-center">
+            <h1 class="mb-20 md:text-2xl text-6xl font-bold text-center">
               アプリの使い方
             </h1>
             <h2 class="text-center font-semibold mb-2">
               STEP-1
             </h2>
-            <p class="mb-4">
+            <p class="mb-4 text-center">
               ユーザー登録にて現在の時給を登録しましょう。
             </p>
             <img
@@ -21,7 +21,7 @@
             <h2 class="text-center font-semibold mb-2">
               STEP-2
             </h2>
-            <p class="mb-4">
+            <p class="mb-4 text-center">
               ログインをして取り組むタスクを登録しましょう。
             </p>
             <img
@@ -68,8 +68,8 @@
     </div>
 
     <!-- リンク -->
-    <div class="justify-center xl:text-xl text-3xl">
-      <div class="xl:flex xl:flex-wrap mb-32 text-center">
+    <div class="justify-center md:text-xl text-3xl">
+      <div class="md:flex md:flex-wrap mb-32 text-center">
         <div
           v-if="!authUser"
           class="p-4 h-64 w-96 mx-auto mb-10"

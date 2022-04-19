@@ -26,8 +26,8 @@
                   あなたの時間をお金に換算します
                 </h2>
               </div>
-              <div class="justify-center xl:text-xl text-3xl">
-                <div class="xl:flex xl:flex-wrap mb-32 text-center">
+              <div class="justify-center md:text-xl text-3xl">
+                <div class="md:flex md:flex-wrap mb-32 text-center">
                   <div class="p-4 h-64 w-96 mx-auto mb-10">
                     <router-link :to="{ name: 'RegisterNew' }">
                       <div class="h-full w-full  px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative shadow-xl bg-white border-2 ">
@@ -108,7 +108,7 @@
         <!-- ログイン後 -->
         <template v-else>
           <div class="justify-center xl:text-xl text-3xl">
-            <div class="xl:flex xl:flex-wrap mb-32 text-center">
+            <div class="md:flex md:flex-wrap mb-32 text-center">
               <div class="p-4 h-64 w-96 mx-auto mb-5">
                 <router-link :to="{ name: 'HomeExplanation' }">
                   <div class="h-full w-full px-8 pt-6 pb-24 rounded-lg overflow-hidden text-center relative  shadow-xl bg-white border-2">
@@ -193,11 +193,11 @@ export default {
   methods: {
     // タイトル画面フェード
     changeIntroductionStart() {
-      setTimeout(function(){this.introduction_start = false;}.bind(this) , 500);
+      setTimeout(function(){this.introduction_start = false;}.bind(this) , 1000);
       this.changeIntroductionEnd()
     },
     changeIntroductionEnd(){
-      setTimeout(function(){this.introduction_end = true;}.bind(this) , 1000);
+      setTimeout(function(){this.introduction_end = true;}.bind(this) , 2000);
     }
   }
 }

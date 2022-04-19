@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
     <div class="max-w-xl sm:mx-auto lg:max-w-2xl text-center">
-      <h1 class="text-center font-bold xl:text-2xl text-6xl mb-20">
+      <h1 class="text-center font-bold md:text-2xl text-6xl mb-20">
         時給変更
       </h1>
       <ValidationObserver v-slot="{ handleSubmit }">
@@ -11,7 +11,7 @@
             rules="required|numeric"
           >
             <label
-              class="block font-bold mb-6 xl:text-sm text-4xl"
+              class="block font-bold mb-6 md:text-sm text-4xl"
               for="current_hourly_wage"
             >
               現在の時給をお教えください
@@ -25,7 +25,7 @@
             >
             <br>
             <h4
-              class="inline-block align-baseline font-bold xl:text-sm text-3xl hover:text-blue-600 mb-3 underline text-blue-500"
+              class="inline-block align-baseline font-bold md:text-sm text-3xl hover:text-blue-600 mb-3 underline text-blue-500"
               @click="handleShowWageCaliculatorModal"
             >
               現在の時給を計算する
@@ -37,7 +37,7 @@
         <br>
         <button
           type="button"
-          class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 xl:text-sm text-4xl"
+          class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl"
           @click="handleSubmit(registerWage)"
         >
           変更

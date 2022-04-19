@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
     <div class="max-w-xl sm:mx-auto lg:max-w-2xl text-center">
-      <h1 class="text-center font-bold xl:text-2xl text-6xl mb-6">
+      <h1 class="text-center font-bold md:text-2xl text-6xl mb-6">
         ユーザー登録
       </h1>
       <form class="rounded px-8 pt-6 pb-8">
@@ -12,7 +12,7 @@
               rules="required|max:20"
             >
               <label
-                class="block font-bold mb-2 xl:text-sm text-4xl"
+                class="block font-bold mb-2 md:text-sm text-4xl"
                 for="name"
               >
                 ニックネーム
@@ -34,7 +34,7 @@
               rules="required|email"
             >
               <label
-                class="block font-bold mb-2 xl:text-sm text-4xl"
+                class="block font-bold mb-2 md:text-sm text-4xl"
                 for="email"
               >
                 メールアドレス
@@ -57,7 +57,7 @@
               vid="password"
             >
               <label
-                class="block font-bold mb-2 xl:text-sm text-4xl"
+                class="block font-bold mb-2 md:text-sm text-4xl"
                 for="password"
               >
                 パスワード
@@ -79,7 +79,7 @@
               rules="required|min:6||max:10|password_confirmed:@password"
             >
               <label
-                class="block font-bold mb-2 xl:text-sm text-4xl"
+                class="block font-bold mb-2 md:text-sm text-4xl"
                 for="password_confirmation"
               >
                 パスワード確認
@@ -101,7 +101,7 @@
               rules="required|numeric"
             >
               <label
-                class="block font-bold mb-2 xl:text-sm text-4xl"
+                class="block font-bold mb-2 md:text-sm text-4xl"
                 for="current_hourly_wage"
               >
                 現在の時給をお教えください
@@ -115,7 +115,7 @@
               >
               <br>
               <h4
-                class="inline-block align-baseline font-bold hover:text-blue-600 mb-3 underline text-blue-500 xl:text-sm text-3xl"
+                class="inline-block align-baseline font-bold hover:text-blue-600 mb-3 underline text-blue-500 md:text-sm text-3xl"
                 @click="handleShowWageCaliculatorModal"
               >
                 現在の時給を計算する
@@ -126,7 +126,7 @@
           </div>
           <button
             type="button"
-            class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 xl:text-sm text-4xl"
+            class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl"
             @click="handleSubmit(register)"
           >
             登録

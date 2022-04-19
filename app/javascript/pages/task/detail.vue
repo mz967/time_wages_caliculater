@@ -1,27 +1,27 @@
 <template>
   <transition name="pagefade">
     <div class="w-full mb-20">
-      <h1 class="text-center mb-10 font-bold xl:text-2xl text-6xl">
+      <h1 class="text-center mb-10 font-bold md:text-2xl text-6xl">
         {{ task.title }}
       </h1>
       <StopWatchFunction
         :task="task"
         @create-work="handleCreateWork"
       />
-      <div class="text-center mb-20 pt-10 xl:pt-0">
-        <h2 class="mt-10 xl:text-xl text-4xl">
+      <div class="text-center mb-20 pt-10 md:pt-0">
+        <h2 class="mt-10 md:text-xl text-4xl">
           これまでの合計時間
-          <span class="xl:text-5xl text-6xl">{{ total_timeH }}</span>時間
-          <span class="xl:text-5xl text-6xl">{{ total_timeM }}</span>分
-          <span class="xl:text-5xl text-6xl">{{ total_timeS }}</span>秒
+          <span class="md:text-5xl text-6xl">{{ total_timeH }}</span>時間
+          <span class="md:text-5xl text-6xl">{{ total_timeM }}</span>分
+          <span class="md:text-5xl text-6xl">{{ total_timeS }}</span>秒
         </h2>
-        <h2 class="mt-10 xl:text-xl text-4xl">
+        <h2 class="mt-10 md:text-xl text-4xl">
           これまでの合計金額
-          <span class="xl:text-5xl text-6xl">{{ task.total_wage.toLocaleString() }}</span>
+          <span class="md:text-5xl text-6xl">{{ task.total_wage }}</span>
           円
         </h2>
       </div>
-      <div class="text-center underline  xl:text-base text-3xl pt-10 xl:pt-0">
+      <div class="text-center underline  md:text-base text-3xl pt-10 xl:pt-0">
         <div class="mb-6">
           <router-link
             :to="{name: 'TaskResult', params: {id: task.id}}"
@@ -57,7 +57,7 @@
         />
       </transition>
 
-      <transition name="fade">
+      <transition name="slowfade">
         <TaskFinishModal
           v-if="isVisibleTaskFinishModal"
           :work="work"
@@ -107,9 +107,6 @@ export default {
       var total_timeS = this.task.total_time % (24 * 60 * 60) % (60 * 60) % 60;
       return total_timeS
     },
-    // initialEvaluation(){
-    //   this.work.evaluation = 5;
-    // }
   },
 
   created() {
@@ -155,7 +152,7 @@ export default {
         await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}/reset`, task)
         // .then(res => this.data = res.data)
         this.CloseTaskEditModal();
-        this.$router.go({path: this.$router.currentRoute.path, force: true})
+        this.$router.go({path: this.$router.go(0)})
         this.$store.commit(`message/setContent`,{
           content: 'タスクの値をリセットしました!',
           timeout: 6000
@@ -226,7 +223,7 @@ export default {
       try {
         await this.$axios.delete( `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`, {work, task})
         this.isVisibleTaskFinishModal = false;
-        this.$router.go({path: this.$router.currentRoute.path, force: true})
+        this.$router.go({path: this.$router.go(0)})
         this.$store.commit(`message/setContent`,{
           content: '今回のタスクを無しにしました!',
           timeout: 6000
@@ -247,7 +244,14 @@ export default {
 .fade-enter, .fade-leave-to{
   opacity: 0;
 }
-
+/* スローフェード */
+.slowfade-enter-active, .slowfade-leave-active{
+  transition: opacity 1s
+}
+.slowfade-enter, .slowfade-leave-to{
+  opacity: 0;
+}
+/* ページフェード */
 .pagefade-enter-active{
   transition: opacity 1s
 }

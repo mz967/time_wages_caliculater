@@ -16,7 +16,7 @@
             >
               <h1
                 id="modal-title"
-                class="leading-6 mb-10 font-bold xl:text-2xl text-4xl"
+                class="leading-6 mb-10 font-bold md:text-2xl text-4xl"
               >
                 ◎編集したい事項を確認してください。
               </h1>
@@ -28,7 +28,7 @@
                       rules="required|max:30"
                     >
                       <label
-                        class="block mb-4 xl:text-base text-4xl"
+                        class="block mb-4 md:text-base text-4xl"
                         for="title"
                       >
                         ・タスク名を変更
@@ -45,7 +45,7 @@
                   </div>
                   <button
                     type="button"
-                    class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl"
                     @click="handleSubmit(handleUpdateTaskTitle)"
                   >
                     変更
@@ -53,24 +53,24 @@
                 </ValidationObserver>
               </div>
               <div class="mb-14">
-                <h2 class="mb-4 xl:text-base text-4xl">
+                <h2 class="mb-4 md:text-base text-4xl">
                   ・数値をリセット
                 </h2>
                 <button
                   type="button"
-                  class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                  class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 md:text-sm text-4xl"
                   @click="handleResetConfirm"
                 >
                   リセット
                 </button>
               </div>
               <div class="mb-14">
-                <h2 class="mb-4 xl:text-base text-4xl">
+                <h2 class="mb-4 md:text-base text-4xl">
                   ・タスクを削除
                 </h2>
                 <button
                   type="button"
-                  class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-500 via-red-700 to-red-500 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                  class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-500 via-red-700 to-red-500 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 md:text-sm text-4xl"
                   @click="handleDeleteConfirm"
                 >
                   削除
@@ -85,30 +85,22 @@
             >
               <h1
                 id="modal-title"
-                class="leading-6 xl:text-3xl text-5xl mb-10"
+                class="leading-6 md:text-3xl text-5xl mb-10"
               >
                 ☆☆注意☆☆
               </h1> 
-              <h2 class="mb-6 xl:text-base text-2xl text-left">
+              <h2 class="mb-6 md:text-base text-2xl text-left">
                 リセットを押したらこれまで記録してきた<br>
                 総合計時間・総合計金額の数値を消去します。<br>
                 本当にリセットをしてもよろしいですか？
               </h2>
               <button
                 type="button"
-                class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 md:text-sm text-4xl"
                 @click="handleResetTask"
               >
                 リセット
               </button>
-              <!-- <br>
-              <button
-                type="button"
-                class="mt-3 w-48 inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                @click="handleResetCancel"
-              >
-                戻る
-              </button> -->
             </div>
 
             <!-- 確認モーダル データ削除 -->
@@ -118,36 +110,29 @@
             >
               <h1
                 id="modal-title" 
-                class="leading-6 xl:text-3xl text-5xl mb-10"
+                class="leading-6 md:text-3xl text-5xl mb-10"
               >
                 ☆☆注意☆☆
               </h1>
-              <h2 class="mb-6 xl:text-base text-2xl text-left">
+              <h2 class="mb-6 md:text-base text-2xl text-left">
                 削除を押したらこれまで記録してきたデータを<br>
                 タスクごと削除します。<br>
                 本当に削除をしてもよろしいですか？
               </h2>
               <button
                 type="button"
-                class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 md:text-sm text-4xl"
                 @click="handleDeleteTask"
               >
                 削除
               </button>
-              <!-- <button
-                type="button"
-                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="handleDeleteCancel"
-              >
-                戻る
-              </button> -->
             </div>
           </div>
         </div>
         <div class="px-4 py-3 text-center">
           <button
             type="button"
-            class="mt-3 w-48 inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="mt-3 w-48 inline-flex justify-center rounded-md border border-gray-300 shadow px-4 py-2 bg-white font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 md:text-sm text-4xl"
             @click="handleCloseModal"
           >
             閉じる

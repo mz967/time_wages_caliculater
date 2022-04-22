@@ -1,53 +1,57 @@
 <template>
-  <!-- <transition name="pagefade"> -->
   <div>
     <!-- 共通画面 -->
     <!-- <h1 class="text-center mb-20 font-bold xl:text-2xl text-6xl">
       <span>{{ task.title }}</span>の推移表
     </h1> -->
-    <div class="text-center">
-      <h2 class="mb-4 md:text-base text-3xl">
-        期間を選択してください
-      </h2>
-      <select
-        id="dating"
-        v-model="selectedDating"
-        class="appearance-none border rounded w-48 py-2 px-3 leading-tight focus:outline-none shadow text-gray-700 text-center"
-        @change="monthlyDataFilter()"
-      >
-        <option
-          disabled
-          value=""
+    <transition
+      name="pagefade"
+      appear
+    >
+      <div class="text-center">
+        <h2 class="mb-4 lg:text-base text-3xl">
+          期間を選択してください
+        </h2>
+        <select
+          id="dating"
+          v-model="selectedDating"
+          class="appearance-none border rounded w-48 py-2 px-3 leading-tight focus:outline-none shadow text-gray-700 text-center"
+          @change="monthlyDataFilter()"
         >
-          選択してください
-        </option>
-        <option
-          v-for="dating in optionDating" 
-          :key="dating.id" 
-          :value="dating.id"
+          <option
+            disabled
+            value=""
+          >
+            選択してください
+          </option>
+          <option
+            v-for="dating in optionDating" 
+            :key="dating.id" 
+            :value="dating.id"
+          >
+            {{ dating.name }}
+          </option>
+        </select>
+        <router-link
+          :to="{ name: 'TaskIndex' }"
+          class="hover:text-blue-500 ml-3 lg:text-base text-3xl underline"
         >
-          {{ dating.name }}
-        </option>
-      </select>
-      <router-link
-        :to="{ name: 'TaskIndex' }"
-        class="hover:text-blue-500 ml-3 md:text-base text-3xl underline"
-      >
-        一覧へ戻る
-      </router-link>
-    </div>
+          一覧へ戻る
+        </router-link>
+      </div>
+    </transition>
 
     <!-- 日別or月別グラフ表示 -->
     <div
       v-if="selectedDating===1 || selectedDating===2"
-      class="w-5/6 md:w-4/6 mx-auto my-20 p-10 shadow text-center"
+      class="w-5/6 lg:w-4/6 mx-auto my-20 p-10 shadow text-center"
     >
       <!-- 日別グラフ -->
       <div v-if="selectedDating===1">
         <select
           id="selected_month"
           v-model="selected_month"
-          class="appearance-none border rounded w-48 py-2 px-3 leading-tight focus:outline-none shadow text-gray-700 md:text-base text-4xl text-center mb-4"
+          class="appearance-none border rounded w-48 py-2 px-3 leading-tight focus:outline-none shadow text-gray-700 lg:text-base text-4xl text-center mb-4"
           @change="dailyDataFilter()"
         >
           <option
@@ -60,32 +64,33 @@
         </select> 
         <div
           v-if="selected_month.length===0"
-          class="m-20 md:text-base text-4xl"
+          class="m-20 lg:text-base text-4xl"
         >
           <h1>月を選択してください</h1>
         </div>
         <div v-else>
           <h1
             v-if="work_days.length===0"
-            class="m-20 md:text-base text-4xl"
+            class="m-20 lg:text-base text-4xl"
           >
             No Data
           </h1>
-          <Chart
-            v-else
-            :chart-data="dataCollection"
-          />
+          <div v-else>
+            <Chart
+              :chart-data="dataCollection"
+            />
+          </div>
         </div>
       </div>
 
       <!-- 月別グラフ(現在は2022年のみ) -->
       <div v-if="selectedDating===2">
-        <h1 class="text-center mb-10 text-gray-700 md:text-base text-4xl">
+        <h1 class="text-center mb-10 text-gray-700 lg:text-base text-4xl">
           2022
         </h1>
         <h1
           v-if="work_months.length===0"
-          class="m-20 md:text-base text-4xl"
+          class="m-20 lg:text-base text-4xl"
         >
           No Data
         </h1>
@@ -95,7 +100,6 @@
         />
       </div>
     </div>
-  <!-- </transition> -->
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="text-left md:text-sm text-3xl">
-    <h1 class="leading-6 font-bold md:text-2xl text-6xl md:my-2 my-10">
+  <div class="text-left lg:text-sm text-3xl">
+    <h1 class="leading-6 font-bold lg:text-2xl text-5xl lg:my-2 my-10">
       ◎平均時給を参照
     </h1>
     <h2 class="mb-4">
@@ -15,7 +15,7 @@
       </span>
       をもとに男女年齢別の平均時給を計算します。
     </h2>
-    <p class="md:text-xs text-xl mb-6">
+    <p class="lg:text-xs text-xl mb-6">
       Ex. 〜19歳男性の場合
       <br>
       183,200円(*)÷30.24日(**)÷7時間(***)=860円(****)
@@ -96,7 +96,7 @@
       <div class="mt-10 text-center">
         <button
           type="button"
-          class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl"
+          class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 lg:text-sm text-4xl"
           @click="handleSubmit(handleSearchAverageHourlyWage)"
         >
           計算

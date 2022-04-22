@@ -1,30 +1,31 @@
 <template>
-  <transition name="pagefade">
+  <transition
+    name="pagefade"
+    appear
+  >
     <div class="w-full mb-20">
-      <h1 class="text-center mb-10 font-bold md:text-2xl text-6xl">
+      <h1 class="text-center mb-10 font-bold lg:text-2xl text-6xl">
         {{ task.title }}
       </h1>
       <StopWatchFunction
         :task="task"
         @create-work="handleCreateWork"
       />
-      <div class="text-center mb-20 pt-10 md:pt-0">
-        <h2 class="mt-10 md:text-xl text-4xl">
+      <div class="text-center mb-20 pt-10 lg:pt-0">
+        <h2 class="mt-10 lg:text-xl text-4xl">
           これまでの合計時間
-          <span class="md:text-5xl text-6xl">{{ total_timeH }}</span>時間
-          <span class="md:text-5xl text-6xl">{{ total_timeM }}</span>分
-          <span class="md:text-5xl text-6xl">{{ total_timeS }}</span>秒
+          <span class="lg:text-5xl text-6xl">{{ total_timeH }}</span>時間 <span class="lg:text-5xl text-6xl">{{ total_timeM }}</span>分 <span class="lg:text-5xl text-6xl">{{ total_timeS }}</span>秒
         </h2>
-        <h2 class="mt-10 md:text-xl text-4xl">
+        <h2 class="mt-10 lg:text-xl text-4xl">
           これまでの合計金額
-          <span class="md:text-5xl text-6xl">{{ task.total_wage }}</span>
+          <span class="lg:text-5xl text-6xl">{{ task.total_wage }}</span>
           円
         </h2>
       </div>
-      <div class="text-center underline  md:text-base text-3xl pt-10 xl:pt-0">
+      <div class="text-center underline lg:text-base text-3xl pt-10 xl:pt-0">
         <div class="mb-6">
           <router-link
-            :to="{name: 'TaskResult', params: {id: task.id}}"
+            :to="{ name: 'TaskResult', params: { id: task.id } }"
             class="hover:text-blue-500"
           >
             タスクの取組状況
@@ -73,16 +74,16 @@
 </template>
 
 <script>
-import TaskEditModal from "./components/TaskEditModal"
-import StopWatchFunction from "./components/StopWatchFunction"
-import TaskFinishModal from "./components/TaskFinishModal"
+import TaskEditModal from "./components/TaskEditModal";
+import StopWatchFunction from "./components/StopWatchFunction";
+import TaskFinishModal from "./components/TaskFinishModal";
 
 export default {
   name: "TaskDetail",
   components: {
     TaskEditModal,
     StopWatchFunction,
-    TaskFinishModal
+    TaskFinishModal,
   },
   data() {
     return {
@@ -91,21 +92,26 @@ export default {
       task: {},
       work: {},
       isVisibleTaskFinishModal: false,
-    }
+    };
   },
 
   computed: {
     total_timeH() {
-      var total_timeH = Math.floor(this.task.total_time % (24 * 60 * 60) / (60 * 60));
-      return total_timeH
+      var total_timeH = Math.floor(
+        (this.task.total_time % (24 * 60 * 60)) / (60 * 60)
+      );
+      return total_timeH;
     },
     total_timeM() {
-      var total_timeM = Math.floor(this.task.total_time % (24 * 60 * 60) % (60 * 60) / 60);
-      return total_timeM
+      var total_timeM = Math.floor(
+        ((this.task.total_time % (24 * 60 * 60)) % (60 * 60)) / 60
+      );
+      return total_timeM;
     },
     total_timeS() {
-      var total_timeS = this.task.total_time % (24 * 60 * 60) % (60 * 60) % 60;
-      return total_timeS
+      var total_timeS =
+        ((this.task.total_time % (24 * 60 * 60)) % (60 * 60)) % 60;
+      return total_timeS;
     },
   },
 
@@ -116,10 +122,11 @@ export default {
   methods: {
     // task取得
     fetchDetail() {
-      this.$axios.get( `${process.env.VUE_BASE_API}/tasks/${this.$route.params.id}`)
+      this.$axios
+        .get(`${process.env.VUE_BASE_API}/tasks/${this.$route.params.id}`)
         // ここはなぜかフルで書かないと機能しない後で調べる
-        .then(res => this.task = res.data)
-        .catch(err => console.log(err.status));
+        .then((res) => (this.task = res.data))
+        .catch((err) => console.log(err.status));
     },
 
     // タスク編集関連
@@ -135,13 +142,14 @@ export default {
     // タイトル変更
     async handleUpdateTask(task) {
       try {
-        await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}`, task)
-        .then(res => this.data = res.data)
+        await this.$axios
+          .patch(`${process.env.VUE_BASE_API}/tasks/${task.id}`, task)
+          .then((res) => (this.data = res.data));
         this.CloseTaskEditModal();
-        this.$store.commit(`message/setContent`,{
-          content: 'タスク名を変更しました!',
-          timeout: 6000
-        })
+        this.$store.commit(`message/setContent`, {
+          content: "タスク名を変更しました!",
+          timeout: 6000,
+        });
       } catch (error) {
         console.log(error);
       }
@@ -149,14 +157,17 @@ export default {
 
     async handleResetTask(task) {
       try {
-        await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}/reset`, task)
+        await this.$axios.patch(
+          `${process.env.VUE_BASE_API}/tasks/${task.id}/reset`,
+          task
+        );
         // .then(res => this.data = res.data)
         this.CloseTaskEditModal();
-        this.$router.go({path: this.$router.go(0)})
-        this.$store.commit(`message/setContent`,{
-          content: 'タスクの値をリセットしました!',
-          timeout: 6000
-        })
+        this.$router.go({ path: this.$router.go(0) });
+        this.$store.commit(`message/setContent`, {
+          content: "タスクの値をリセットしました!",
+          timeout: 6000,
+        });
       } catch (error) {
         console.log(error);
       }
@@ -166,20 +177,29 @@ export default {
     async handleDeleteTask(task) {
       try {
         // await this.deleteTask(task);
-        await this.$axios.delete( `${process.env.VUE_BASE_API}/tasks/${task.id}`, task)
-        this.$router.push({ name: 'TaskIndex' })
-        this.$store.commit(`message/setContent`,{
-          content: 'タスクを破棄しました!',
-          timeout: 6000
-        })
+        await this.$axios.delete(
+          `${process.env.VUE_BASE_API}/tasks/${task.id}`,
+          task
+        );
+        this.$router.push({ name: "TaskIndex" });
+        this.$store.commit(`message/setContent`, {
+          content: "タスクを破棄しました!",
+          timeout: 6000,
+        });
       } catch (error) {
         console.log(error);
       }
     },
 
     handleCreateWork(work, task) {
-      this.$axios.post( `${process.env.VUE_BASE_API}/tasks/${task.id}/works`, {work, task})
-        .then(res => {this.work = res.data.work, this.task = res.data.task})
+      this.$axios
+        .post(`${process.env.VUE_BASE_API}/tasks/${task.id}/works`, {
+          work,
+          task,
+        })
+        .then((res) => {
+          (this.work = res.data.work), (this.task = res.data.task);
+        });
       this.handleshowTaskFinishModal();
     },
 
@@ -193,13 +213,17 @@ export default {
 
     async handleEvaluateWorkIndex(work, task) {
       try {
-        await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`, {work, task})
-        .then(res => this.data = res.data)
-        this.$router.push('/tasks')
-        this.$store.commit(`message/setContent`,{
+        await this.$axios
+          .patch(
+            `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`,
+            { work, task }
+          )
+          .then((res) => (this.data = res.data));
+        this.$router.push("/tasks");
+        this.$store.commit(`message/setContent`, {
           content: `評価${work.evaluation}点にて今回のタスクを登録しました!`,
-          timeout: 6000
-        })
+          timeout: 6000,
+        });
       } catch (error) {
         console.log(error);
       }
@@ -207,13 +231,17 @@ export default {
 
     async handleEvaluateWorkClose(work, task) {
       try {
-        await this.$axios.patch( `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`, {work, task})
-        .then(res => this.data = res.data)
+        await this.$axios
+          .patch(
+            `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`,
+            { work, task }
+          )
+          .then((res) => (this.data = res.data));
         this.isVisibleTaskFinishModal = false;
-        this.$store.commit(`message/setContent`,{
+        this.$store.commit(`message/setContent`, {
           content: `評価${work.evaluation}点にて今回のタスクを登録しました!`,
-          timeout: 6000
-        })
+          timeout: 6000,
+        });
       } catch (error) {
         console.log(error);
       }
@@ -221,41 +249,48 @@ export default {
 
     async handleDeleteWork(work, task) {
       try {
-        await this.$axios.delete( `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`, {work, task})
+        await this.$axios.delete(
+          `${process.env.VUE_BASE_API}/tasks/${task.id}/works/${work.id}`,
+          { work, task }
+        );
         this.isVisibleTaskFinishModal = false;
-        this.$router.go({path: this.$router.go(0)})
-        this.$store.commit(`message/setContent`,{
-          content: '今回のタスクを無しにしました!',
-          timeout: 6000
-        })
+        this.$router.go({ path: this.$router.go(0) });
+        this.$store.commit(`message/setContent`, {
+          content: "今回のタスクを無しにしました!",
+          timeout: 6000,
+        });
       } catch (error) {
         console.log(error);
       }
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
-/* フェード */
-.fade-enter-active, .fade-leave-active{
-  transition: opacity 0.5s
+/* ページフェード */
+.pagefade-enter-active {
+  transition: opacity 1s;
 }
-.fade-enter, .fade-leave-to{
+.pagefade-enter {
+  opacity: 0;
+}
+/* フェード */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 /* スローフェード */
-.slowfade-enter-active, .slowfade-leave-active{
-  transition: opacity 1s
+.slowfade-enter-active,
+.slowfade-leave-active {
+  transition: opacity 1s;
 }
-.slowfade-enter, .slowfade-leave-to{
-  opacity: 0;
-}
-/* ページフェード */
-.pagefade-enter-active{
-  transition: opacity 1s
-}
-.pagefade-enter{
+.slowfade-enter,
+.slowfade-leave-to {
   opacity: 0;
 }
 </style>

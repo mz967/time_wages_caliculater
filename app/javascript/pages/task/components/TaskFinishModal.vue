@@ -11,27 +11,27 @@
           <div class="mt-3 text-left">
             <h3
               id="modal-title"
-              class="leading-6 font-bold md:text-2xl text-6xl md:mb-10 mb-20 md:mt-0 mt-10"
+              class="leading-6 font-bold lg:text-2xl text-5xl lg:mb-10 mb-20 lg:mt-0 mt-10"
             >
               お疲れさまでした!!
             </h3>
-            <div class="md:text-base text-4xl">
+            <div class="lg:text-base text-4xl">
               <p class="mb-3">
                 今回は
-                <span class="md:text-xl text-5xl">{{ work_timeH }}</span>時間
-                <span class="md:text-xl text-5xl">{{ work_timeM }}</span>分
-                <span class="md:text-xl text-5xl">{{ work_timeS }}</span>秒で
+                <span class="lg:text-xl text-5xl">{{ work_timeH }}</span>時間
+                <span class="lg:text-xl text-5xl">{{ work_timeM }}</span>分
+                <span class="lg:text-xl text-5xl">{{ work_timeS }}</span>秒で
               </p>
               <p class="mb-6">
-                <span class="md:text-2xl text-6xl text-red-500">{{ this_task_wage }}</span>円分の働きとなりました!
+                <span class="lg:text-2xl text-6xl text-red-500">{{ this_task_wage }}</span>円分の働きとなりました!
               </p>
             </div>
             <h3
-              class="leading-6 mb-3 mt-20 md:text-base text-4xl"
+              class="mb-3 mt-20 lg:text-base text-4xl"
             >
               今回のタスクの取り組みを評価してみましょう!
             </h3>
-            <div class="flex mb-3 md:text-base text-xl font-bold">
+            <div class="flex mb-3 lg:text-base text-xl font-bold">
               <p class="m-2">
                 低
               </p>
@@ -62,13 +62,13 @@
                 高
               </p>
             </div>
-            <div class="text-center md:mb-0 mb-20">
+            <div class="text-center lg:mb-0 mb-20">
               <h1 v-if="scole===true">
-                <span class="md:text-xl text-5xl">{{ work.evaluation }}</span>点
+                <span class="lg:text-xl text-5xl">{{ work.evaluation }}</span>点
               </h1> 
               <h1
                 v-else
-                class="text-red-400 px-4 py-3 rounded relative md:text-base text-3xl"
+                class="text-red-400 px-4 py-3 rounded relative lg:text-base text-3xl"
               >
                 点数を選択してください
               </h1>
@@ -78,21 +78,21 @@
         <div class="px-4 py-3 text-center">
           <button
             type="button"
-            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-green-400 via-green-500 to-green-400 text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mb-4 md:text-sm text-4xl"
+            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-green-400 via-green-500 to-green-400 text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mb-4 lg:text-sm md:text-2xl  text-4xl"
             @click="handleEvaluationWorksClose"
           >
-            評価してタスクをもう一度計測する
+            評価してタスクをもう一度計測
           </button>
           <button
             type="button"
-            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mb-4 md:text-sm text-4xl"
+            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mb-4 lg:text-sm md:text-2xl text-4xl"
             @click="handleEvaluationWorkIndex"
           >
-            評価してタスクを終了する
+            評価してタスクを終了
           </button>
           <button
             type="button"
-            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 mb-6 md:text-sm text-4xl"
+            class="w-4/5 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-red-400 via-red-500 to-red-400 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 mb-6 lg:text-sm md:text-2xl text-4xl"
             @click="handleDeleteWork"
           >
             今回は登録しない

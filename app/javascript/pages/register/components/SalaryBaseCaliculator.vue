@@ -5,14 +5,14 @@
     >
       <button
         type="button"
-        class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl mb-10"
+        class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 lg:text-sm md:text-2xl text-4xl mb-10"
         @click="handleShowMonthlyIncome"
       >
         月収から計算する
       </button>
       <button
         type="button"
-        class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl"
+        class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 lg:text-sm md:text-2xl text-4xl"
         @click="handleShowAnnualIncome"
       >
         年収から計算する
@@ -20,7 +20,7 @@
     </div>
 
     <div v-else-if="style==='monthly_income'">
-      <h3 class="leading-6 font-bold md:text-2xl text-6xl md:my-2 my-10">
+      <h3 class="leading-6 font-bold lg:text-2xl text-5xl lg:my-2 my-10">
         ◎月収より計算
       </h3>
       <br>
@@ -57,7 +57,7 @@
               for="working_time"
             >
               労働時間を記入してください。<br>
-              <span class="md:text-xs text-lg">※単位は時間です。分については四捨五入をして時間に変換してください。</span>
+              <span class="lg:text-xs text-lg">※単位は時間です。分については四捨五入をして時間に変換してください。</span>
             </label>
             <input
               id="working_time"
@@ -72,7 +72,7 @@
         <div class="mt-10 text-center">
           <button
             type="button"
-            class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl"
+            class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 lg:text-sm text-4xl"
             @click="handleSubmit(handleCaliculateMontlyIncome)"
           >
             計算
@@ -82,7 +82,7 @@
     </div>
 
     <div v-else-if="style==='annual_income'">
-      <h3 class="leading-6 font-bold md:text-2xl text-6xl md:my-2 my-10">
+      <h3 class="leading-6 font-bold lg:text-2xl text-5xl lg:my-2 my-10">
         ◎年収より計算
       </h3>
       <br>
@@ -119,7 +119,7 @@
               for="working_time"
             >
               労働時間を記入してください。<br>
-              <span class="md:text-xs text-lg">※単位は時間です。分については四捨五入をして時間に変換してください。</span>
+              <span class="lg:text-xs text-lg">※単位は時間です。分については四捨五入をして時間に変換してください。</span>
             </label>
             <input
               id="working_time"
@@ -134,7 +134,7 @@
         <div class="mt-10 text-center">
           <button
             type="button"
-            class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-sm text-4xl"
+            class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 lg:text-sm text-4xl"
             @click="handleSubmit(handleCaliculateAnnualIncome)"
           >
             計算

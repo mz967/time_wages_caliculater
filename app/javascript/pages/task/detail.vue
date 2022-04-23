@@ -270,7 +270,7 @@ export default {
 <style scoped>
 /* ページフェード */
 .pagefade-enter-active {
-  transition: opacity 1s;
+  transition: opacity 2s;
 }
 .pagefade-enter {
   opacity: 0;
@@ -285,12 +285,10 @@ export default {
   opacity: 0;
 }
 /* スローフェード */
-.slowfade-enter-active,
-.slowfade-leave-active {
-  transition: opacity 1s;
+.slowfade-enter-active {
+  transition: opacity 2s;
 }
-.slowfade-enter,
-.slowfade-leave-to {
+.slowfade-enter {
   opacity: 0;
 }
 </style>

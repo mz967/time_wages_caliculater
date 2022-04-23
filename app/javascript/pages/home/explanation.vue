@@ -96,7 +96,7 @@
       </div>
 
       <!-- メリット説明 -->
-      <div class="mb-20 lg:text-xl text-3xl text-left leading-loose">
+      <div class="mb-20 lg:text-xl text-3xl text-left lg:text-center leading-loose">
         <h1 class="mb-20 lg:text-2xl text-4xl font-bold text-center">
           時間賃金換算機のメリット
         </h1>
@@ -106,35 +106,43 @@
         <h2 class="text-center font-semibold mb-2">
           MERIT-1
         </h2>
-        <p class="mb-6">
+        <p class="mb-12">
           ユーザー登録とタスク登録をするだけで以後はタイマーで時間を計測するだけ！
         </p>
         <img
-          src="../../images/Memo.jpg"
+          src="../../images/Start.png"
           alt=""
-          class="w-96 h-96 mb-10 mx-auto"
+          class="w-96 h-96 mb-20 mx-auto border-4"
         >
         <h2 class="text-center font-semibold mb-2">
           MERIT-2
         </h2>
-        <a class="mb-6">
+        <p class="mb-12">
           タスクに集中できたかをわかりやすく点数で評価することで、長期間のタスクでの作業能率を明確に理解できる！
-        </a>
+        </p>
         <img
-          src="../../images/Memo.jpg"
+          src="../../images/Evaluate.png"
           alt=""
-          class="w-96 h-96 mb-10 mx-auto"
+          class="w-96 h-96 mb-20 mx-auto border-4"
+        >
+        <p class="mb-12">
+          つけた点数は色の濃さに反映されるので一目瞭然!
+        </p>
+        <img
+          src="../../images/Graph.png"
+          alt=""
+          class="w-96 h-96 mb-20 mx-auto border-4"
         >
         <h2 class="text-center font-semibold mb-2">
           MERIT-3
         </h2>
-        <a class="mb-6">
-          タスク一覧画面に取り組んだタスクをすべて表示されているため同時並行で取り組んでいるタスクの管理が簡単にできる！
-        </a>
+        <p class="mb-12">
+          タスク一覧画面に取り組んだタスクが表示されるため同時並行で取り組んでいるタスクの管理が簡単にできる！
+        </p>
         <img
-          src="../../images/Memo.jpg"
+          src="../../images/TaskIndex.png"
           alt=""
-          class="w-96 h-96 mb-48 mx-auto"
+          class="w-96 h-96 mb-48 mx-auto border-4"
         >
       </div>
 

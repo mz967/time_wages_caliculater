@@ -48,6 +48,11 @@
     >
       <!-- 日別グラフ -->
       <div v-if="selectedDating===1">
+        <div
+          class="mb-10 lg:text-base text-3xl"
+        >
+          <h1>月を選択してください</h1>
+        </div> 
         <select
           id="selected_month"
           v-model="selected_month"
@@ -62,24 +67,16 @@
             <span>{{ month }}</span>
           </option>
         </select> 
-        <div
-          v-if="selected_month.length===0"
+        <h1
+          v-if="work_days.length===0"
           class="m-20 lg:text-base text-4xl"
         >
-          <h1>月を選択してください</h1>
-        </div>
+          No Data
+        </h1>
         <div v-else>
-          <h1
-            v-if="work_days.length===0"
-            class="m-20 lg:text-base text-4xl"
-          >
-            No Data
-          </h1>
-          <div v-else>
-            <Chart
-              :chart-data="dataCollection"
-            />
-          </div>
+          <Chart
+            :chart-data="dataCollection"
+          />
         </div>
       </div>
 
@@ -312,6 +309,10 @@ export default {
         this.monthly_evaluated_wages.push(monthly_works[i][2]);
       }
     },
+    
+    form(month){
+      return month.format('YYYY年MM月')
+    }
   },
 }
 </script>

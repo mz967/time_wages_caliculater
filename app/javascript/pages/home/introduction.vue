@@ -7,64 +7,84 @@
       <div class="mb-20 lg:text-xl text-3xl">
         <div class="mb-16">
           <div class="lg:text-xl text-3xl">
-            <div class="mb-10 text-left xl:text-center">
-              <h1 class="mb-20 lg:text-2xl text-6xl font-bold text-center">
+            <div class="mb-10 text-center">
+              <h1 class="mb-20 lg:text-2xl text-6xl font-bold">
                 アプリの使い方
               </h1>
-              <h2 class="text-center font-semibold mb-2">
+              <h2 class="font-semibold mb-2">
                 STEP-1
               </h2>
-              <p class="mb-4 text-center">
+              <p class="mb-10">
                 ユーザー登録にて現在の時給を登録しましょう。
               </p>
               <img
-                src="../../images/User.jpg"
+                src="../../images/Registar.jpeg"
                 alt=""
-                class="w-full h-full mb-10"
+                class="w-96 h-96 mb-24 border-4 mx-auto"
               >
-              <h2 class="text-center font-semibold mb-2">
+              <h2 class="font-semibold mb-2">
                 STEP-2
               </h2>
-              <p class="mb-4 text-center">
+              <p class="mb-10 text-center">
                 ログインをして取り組むタスクを登録しましょう。
               </p>
               <img
-                src="../../images/User.jpg"
+                src="../../images/Login.jpeg"
                 alt=""
-                class="w-full h-full mb-10"
+                class="w-96 h-96 mb-24 border-4 mx-auto"
               >
-              <h2 class="text-center font-semibold mb-2">
+              <img
+                src="../../images/TaskCreate.jpeg"
+                alt=""
+                class="w-96 h-96 mb-24 border-4 mx-auto"
+              >
+              <img
+                src="../../images/TaskCreateModal.jpeg"
+                alt=""
+                class="w-96 h-96 mb-24 border-4 mx-auto"
+              >
+              <h2 class="font-semibold mb-2">
                 STEP-3
               </h2>
-              <p class="mb-4">
+              <p class="mb-10">
                 タスクの詳細画面のストップウォッチで取組時間を計測してみましょう。
               </p>
               <img
-                src="../../images/User.jpg"
+                src="../../images/Start.png"
                 alt=""
-                class="w-full h-full mb-10"
+                class="w-96 h-96 mb-24 border-4 mx-auto"
               >
-              <h2 class="text-center font-semibold mb-2">
+              <img
+                src="../../images/Stop.png"
+                alt=""
+                class="w-96 h-96 mb-24 border-4 mx-auto"
+              >
+              <img
+                src="../../images/Evaluate.png"
+                alt=""
+                class="w-96 h-96 mb-24 border-4 mx-auto"
+              >
+              <h2 class="font-semibold mb-2">
                 STEP-4
               </h2>
-              <p class="mb-4">
+              <p class="mb-10 text-left lg:text-center">
                 これまでに取り組んだタスクの取組状況はグラフで確認できます。
               </p>
               <img
-                src="../../images/User.jpg"
+                src="../../images/Graph.png"
                 alt=""
-                class="w-full h-full mb-10"
+                class="w-96 h-96 mb-24 border-4 mx-auto"
               >
-              <h2 class="text-center font-semibold mb-2">
+              <h2 class="font-semibold mb-2">
                 STEP-5
               </h2>
-              <p class="mb-4">
+              <p class="mb-10 text-left lg:text-center">
                 タスク一覧画面ではどのタスクにどのくらいの労力を費やしたか相対的に確認できます。
               </p>
               <img
-                src="../../images/User.jpg"
+                src="../../images/TaskIndex.png"
                 alt=""
-                class="w-full h-full mb-10"
+                class="w-96 h-96 mb-48 border-4 mx-auto"
               >
             </div>
           </div>

@@ -26,7 +26,7 @@ export default {
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              stepSize: 10000,
+              stepSize: 50000,
               callback: (value) => `${value}円`,
             }
           }],
@@ -37,7 +37,7 @@ export default {
               return tooltipItem[0].xLabel;
             },
             label: (tooltipItem, data) => {
-              return tooltipItem.yLabel + '円';
+              return tooltipItem.yLabel.toLocaleString() + '円';
             }
           }
         }

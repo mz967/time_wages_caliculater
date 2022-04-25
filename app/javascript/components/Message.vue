@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="message"
-    class="text-green-600 text-xl"
+    class="text-green-600 text-xl mt-5"
   >
     {{ message }}
   </div>
@@ -10,10 +10,6 @@
 <script>
   import { mapState } from 'vuex'
   export default {
-    // data: {
-    //     success: true,
-    //     alert: false
-    // },
     computed: {
       ...mapState({
         message: state => state.message.content

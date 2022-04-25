@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
     <div class="max-w-xl sm:mx-auto lg:max-w-2xl text-center">
-      <h1 class="font-bold text-3xl mb-6">
+      <h1 class="font-bold mb-6 lg:text-2xl text-6xl">
         ログイン
       </h1>
       <form class="rounded px-8 pt-6 pb-8 mb-4">
@@ -12,7 +12,7 @@
               rules="required|email"
             >
               <label
-                class="block text-sm font-bold mb-2"
+                class="block font-bold mb-2 lg:text-sm text-4xl"
                 for="email"
               >
                 メールアドレス
@@ -28,13 +28,13 @@
               <span class="text-red-400 px-4 py-3 rounded relative">{{ errors[0] }}</span>
             </ValidationProvider>
           </div>
-          <div class="mb-4">
+          <div class="mb-20">
             <ValidationProvider
               v-slot="{ errors }"
               rules="required|min:6|max:20"
             >
               <label
-                class="block text-sm font-bold mb-2"
+                class="block font-bold mb-2 lg:text-sm text-4xl"
                 for="password"
               >
                 パスワード
@@ -52,7 +52,7 @@
           </div>
           <button
             type="button"
-            class="w-full inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+            class="w-48 inline-flex justify-center rounded-md border border-transparent shadow px-4 py-2 bg-gradient-to-b hover:bg-gradient-to-t from-blue-400 via-blue-500 to-blue-400 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 lg:text-sm text-4xl"
             @click="handleSubmit(login)"
           >
             ログイン
